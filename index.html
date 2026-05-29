@@ -6,9 +6,8 @@
   <title>JBAS — Journey Beyond Aerospace Society</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Syne for display, Figtree for body — uncommon pairing with aerospace precision feel -->
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -17,6 +16,7 @@
     <a class="navbar__logo" href="#" aria-label="JBAS — scroll to top">
       <img src="assets/jbas-logo.png" alt="JBAS Logo" height="42" />
     </a>
+    <!-- Hamburger morphs into X — no separate close button -->
     <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
       <span class="hamburger__line"></span>
       <span class="hamburger__line"></span>
@@ -26,9 +26,6 @@
   <!-- ===================== SLIDE-OUT MENU ===================== -->
   <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
   <aside class="slide-menu" id="slideMenu" aria-hidden="true">
-    <button class="slide-menu__close" id="menuClose" aria-label="Close menu">
-      <span></span><span></span>
-    </button>
 
     <nav class="slide-menu__nav" aria-label="Programs">
       <a class="slide-menu__link" href="#" tabindex="-1">STRATOS</a>
@@ -54,33 +51,29 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="hero">
-    <!-- Animated background layers -->
     <div class="hero__bg" aria-hidden="true">
       <div class="hero__bg-noise"></div>
       <div class="hero__bg-glow hero__bg-glow--1"></div>
       <div class="hero__bg-glow hero__bg-glow--2"></div>
       <div class="hero__bg-glow hero__bg-glow--3"></div>
-      <!-- Parallax star field -->
       <canvas class="hero__stars" id="starsCanvas" aria-hidden="true"></canvas>
     </div>
 
-    <!-- Parallax wrapper moves with cursor -->
     <div class="hero__parallax" id="heroParallax">
       <div class="hero__content">
         <h1 class="hero__title" id="heroTitle">
           <span class="hero__title-char" aria-hidden="true">J</span><span class="hero__title-char" aria-hidden="true">B</span><span class="hero__title-char" aria-hidden="true">A</span><span class="hero__title-char" aria-hidden="true">S</span>
-          <!-- Screen-reader text -->
           <span class="sr-only">JBAS</span>
         </h1>
         <p class="hero__subtitle" id="heroSubtitle">Engineering aerospace systems beyond the classroom.</p>
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="hero__scroll-indicator" aria-hidden="true">
-      <div class="scroll-line">
-        <div class="scroll-line__inner"></div>
-      </div>
+    <!-- Redesigned scroll indicator — minimal chevron -->
+    <div class="hero__scroll-indicator" id="scrollIndicator" aria-hidden="true">
+      <svg class="scroll-chevron" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="1,1 10,10 19,1" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
   </section>
 
@@ -90,8 +83,11 @@
 
       <!-- STRATOS -->
       <article class="program-card" data-index="0" aria-label="STRATOS — High-Altitude Balloon System">
+        <div class="program-card__image" aria-hidden="true">
+          <img src="assets/homepage-stratos-image.png" alt="" />
+        </div>
+        <div class="program-card__overlay" aria-hidden="true"></div>
         <div class="program-card__inner">
-          <div class="program-card__bg-texture" aria-hidden="true"></div>
           <div class="program-card__lines" aria-hidden="true">
             <div class="card-line card-line--h"></div>
             <div class="card-line card-line--v"></div>
@@ -114,8 +110,11 @@
 
       <!-- ARMSTRONG -->
       <article class="program-card" data-index="1" aria-label="ARMSTRONG — Amateur Rocketry Program">
+        <div class="program-card__image" aria-hidden="true">
+          <img src="assets/homepage-armstrong-image.png" alt="" />
+        </div>
+        <div class="program-card__overlay" aria-hidden="true"></div>
         <div class="program-card__inner">
-          <div class="program-card__bg-texture" aria-hidden="true"></div>
           <div class="program-card__lines" aria-hidden="true">
             <div class="card-line card-line--h"></div>
             <div class="card-line card-line--v"></div>
@@ -138,8 +137,11 @@
 
       <!-- AEROMED -->
       <article class="program-card" data-index="2" aria-label="AEROMED — Autonomous UAV Logistics">
+        <div class="program-card__image" aria-hidden="true">
+          <img src="assets/homepage-aeromed-image.png" alt="" />
+        </div>
+        <div class="program-card__overlay" aria-hidden="true"></div>
         <div class="program-card__inner">
-          <div class="program-card__bg-texture" aria-hidden="true"></div>
           <div class="program-card__lines" aria-hidden="true">
             <div class="card-line card-line--h"></div>
             <div class="card-line card-line--v"></div>
