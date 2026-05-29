@@ -111,9 +111,6 @@ const state = {
 
 // =====================================================
 // NAVBAR — scroll detection
-// Uses RAF to batch scroll events and prevent flash.
-// The border is handled via a ::after pseudo-element
-// in CSS — never toggled here — to avoid render artifacts.
 // =====================================================
 (function initNavbar() {
   const navbar = document.getElementById('navbar');
@@ -137,7 +134,6 @@ const state = {
     }
   }, { passive: true });
 
-  // Set initial state without waiting for scroll
   update();
 })();
 
@@ -190,7 +186,6 @@ const state = {
     menu.setAttribute('aria-hidden', 'false');
     overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    // Re-enable focus for menu items
     menu.querySelectorAll('[tabindex="-1"]').forEach(el => el.removeAttribute('tabindex'));
   }
 
@@ -204,8 +199,8 @@ const state = {
     menu.setAttribute('aria-hidden', 'true');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    // Disable focus for offscreen menu items
-    menu.querySelectorAll('a').forEach(el => el.setAttribute('tabindex', '-1'));
+    // Focus selector safely targets links hidden inside the aside overlay block
+    menu.querySelectorAll('.slide-menu__link, .slide-menu__small-link').forEach(el => el.setAttribute('tabindex', '-1'));
   }
 
   btn.addEventListener('click', () => state.menuOpen ? closeMenu() : openMenu());
