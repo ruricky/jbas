@@ -136,18 +136,16 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   height: 1.5px;
   background: var(--color-white);
   border-radius: 1px;
-  /* Both lines sit at vertical center; offset by translation */
   transform-origin: center center;
-  transition:
-    transform var(--t-slow) var(--ease-out),
-    opacity var(--t-mid) var(--ease-out);
+  /* Unified duration to 0.3s with clean cubic easing for synchronous motion */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Resting state: two parallel lines */
 .hamburger__line:nth-child(1) { transform: translateY(-5px); }
 .hamburger__line:nth-child(2) { transform: translateY(5px); }
 
-/* Open state: morph into X */
+/* Open state: morph into X directly at center */
 .navbar__hamburger.open .hamburger__line:nth-child(1) {
   transform: translateY(0) rotate(45deg);
 }
@@ -187,11 +185,11 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   border-left: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
-  /* Extra top padding — no close button needed inside */
   padding: 96px 48px 60px;
   gap: 48px;
   transform: translateX(100%);
-  transition: transform var(--t-xslow) var(--ease-out);
+  /* Updated to 0.3s cubic-bezier to match icon transformation timing exactly */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
 }
 .slide-menu.open {
@@ -411,9 +409,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   transform: translateX(-50%);
   z-index: 2;
   opacity: 0;
-  /* Fades in after hero loads */
   animation: indicatorFadeIn 1s var(--ease-out) 2.2s forwards;
-  /* Fades out on scroll — handled by JS adding .hidden class */
   transition: opacity 0.5s var(--ease-out);
 }
 .hero__scroll-indicator.hidden {
@@ -429,7 +425,6 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   height: 11px;
   color: var(--color-white);
   display: block;
-  /* Gentle repeating bob downward */
   animation: chevronBob 2.6s var(--ease-inout) infinite;
 }
 @keyframes chevronBob {
@@ -462,8 +457,6 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   overflow: hidden;
   position: relative;
   cursor: pointer;
-
-  /* Entrance animation */
   opacity: 0;
   transform: translateY(40px);
   transition:
@@ -495,7 +488,6 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   object-fit: cover;
   object-position: center;
   display: block;
-  /* Slight desaturate to keep the dark aerospace feel */
   filter: brightness(0.72) saturate(0.8);
   transform: scale(1);
   transition:
@@ -504,18 +496,16 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   will-change: transform;
 }
 
-/* Hover: subtle zoom + brightness lift */
 .program-card:hover .program-card__image img {
   transform: scale(1.06);
   filter: brightness(0.82) saturate(0.9);
 }
 
-/* ---- Dark gradient overlay — keeps text readable ---- */
+/* ---- Dark gradient overlay ---- */
 .program-card__overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  /* Strong bottom vignette, lighter at top */
   background: linear-gradient(
     to top,
     rgba(0,0,0,0.80) 0%,
@@ -533,7 +523,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   );
 }
 
-/* ---- Inner layout layer (labels, arrow) ---- */
+/* ---- Inner layout layer ---- */
 .program-card__inner {
   position: absolute;
   inset: 0;
@@ -597,7 +587,6 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   color: var(--color-white);
   transform: translateY(0);
   transition: transform var(--t-slow) var(--ease-out);
-  /* Text shadow for legibility over image */
   text-shadow: 0 1px 8px rgba(0,0,0,0.6);
 }
 .program-card:hover .program-card__name {
@@ -744,7 +733,6 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   }
   .program-card { aspect-ratio: 4 / 3; }
 
-  /* On mobile: always show sub + arrow */
   .program-card__sub { opacity: 1; transform: translateY(0); }
   .program-card__arrow { opacity: 1; transform: translate(0,0); }
   .program-card__name { transform: translateY(-4px); }
