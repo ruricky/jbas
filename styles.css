@@ -61,22 +61,18 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 /* =====================================================
    NAVBAR
-   Fix: no border-bottom transition (causes white flash).
-   Instead use a pseudo-element for the border so it
-   never creates a repaint artifact during bg transition.
+   Fix: Elevated z-index to 300 to remain the highest layer.
    ===================================================== */
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 100;
+  z-index: 300; /* Highest visible interface layer */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
   height: 72px;
-  /* Start fully transparent — no background at all */
   background: transparent;
-  /* Isolate compositing layer to prevent flash */
   transform: translateZ(0);
   will-change: background;
   transition: background var(--t-mid) var(--ease-out),
@@ -84,8 +80,6 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
               -webkit-backdrop-filter var(--t-mid) var(--ease-out);
 }
 
-/* Pseudo-element border: hidden at start, fades in when scrolled.
-   Avoids the white-flash that a direct border transition causes. */
 .navbar::after {
   content: '';
   position: absolute;
@@ -137,15 +131,12 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   background: var(--color-white);
   border-radius: 1px;
   transform-origin: center center;
-  /* Unified duration to 0.3s with clean cubic easing for synchronous motion */
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Resting state: two parallel lines */
 .hamburger__line:nth-child(1) { transform: translateY(-5px); }
 .hamburger__line:nth-child(2) { transform: translateY(5px); }
 
-/* Open state: morph into X directly at center */
 .navbar__hamburger.open .hamburger__line:nth-child(1) {
   transform: translateY(0) rotate(45deg);
 }
@@ -155,12 +146,12 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 /* =====================================================
    SLIDE-OUT MENU
-   No close button inside — hamburger serves dual role.
+   Fix: Modified to start at top: 72px and fill remaining height.
    ===================================================== */
 .menu-overlay {
   position: fixed;
-  inset: 0;
-  z-index: 200;
+  top: 72px; bottom: 0; left: 0; right: 0; /* Starts below navbar */
+  z-index: 100; /* Positioned behind navbar layer */
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -175,20 +166,19 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 .slide-menu {
   position: fixed;
-  top: 0; right: 0;
-  z-index: 300;
+  top: 72px; right: 0; /* Starts below navbar */
+  z-index: 200; /* Positioned behind navbar layer */
   width: min(420px, 100vw);
-  height: 100dvh;
+  height: calc(100dvh - 72px); /* Occupies remaining viewport height */
   background: rgba(8,8,8,0.94);
   backdrop-filter: blur(40px) saturate(1.2);
   -webkit-backdrop-filter: blur(40px) saturate(1.2);
   border-left: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
-  padding: 96px 48px 60px;
+  padding: 48px 48px 60px; /* Reduced top padding since navbar space is omitted */
   gap: 48px;
   transform: translateX(100%);
-  /* Updated to 0.3s cubic-bezier to match icon transformation timing exactly */
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
 }
@@ -401,7 +391,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---- Scroll Indicator — minimal animated chevron ---- */
+/* ---- Scroll Indicator ---- */
 .hero__scroll-indicator {
   position: absolute;
   bottom: 40px;
@@ -742,6 +732,8 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 
 @media (max-width: 600px) {
-  .slide-menu { padding: 88px 32px 48px; }
+  /* Fix: Adjust layout below mobile nav bar boundaries */
+  .menu-overlay { top: 72px; }
+  .slide-menu { top: 72px; height: calc(100dvh - 72px); padding: 48px 32px 48px; }
   .slide-menu__link { font-size: clamp(1.7rem, 8vw, 2.4rem); }
 }
