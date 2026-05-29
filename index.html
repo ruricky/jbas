@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JBAS — Journey Beyond Aerospace Society</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Syne for display, Figtree for body — uncommon pairing with aerospace precision feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <a class="navbar__logo" href="#" aria-label="JBAS — scroll to top">
+      <img src="assets/jbas-logo.png" alt="JBAS Logo" height="42" />
+    </a>
+    <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+  </nav>
+
+  <!-- ===================== SLIDE-OUT MENU ===================== -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+  <aside class="slide-menu" id="slideMenu" aria-hidden="true">
+    <button class="slide-menu__close" id="menuClose" aria-label="Close menu">
+      <span></span><span></span>
+    </button>
+
+    <nav class="slide-menu__nav" aria-label="Programs">
+      <a class="slide-menu__link" href="#" tabindex="-1">STRATOS</a>
+      <span class="slide-menu__link-sub">Weather Balloon</span>
+      <a class="slide-menu__link" href="#" tabindex="-1">ARMSTRONG</a>
+      <span class="slide-menu__link-sub">Rocketry</span>
+      <a class="slide-menu__link" href="#" tabindex="-1">AEROMED</a>
+      <span class="slide-menu__link-sub">UAV Logistics</span>
+    </nav>
+
+    <div class="slide-menu__section">
+      <p class="slide-menu__heading">CONTACT</p>
+      <a class="slide-menu__small-link" href="mailto:garrettrurik@gmail.com" tabindex="-1">garrettrurik@gmail.com</a>
+    </div>
+
+    <div class="slide-menu__section">
+      <p class="slide-menu__heading">SOCIAL</p>
+      <a class="slide-menu__small-link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub</a>
+      <a class="slide-menu__small-link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer" tabindex="-1">Instagram</a>
+      <span class="slide-menu__small-link slide-menu__small-link--muted">YouTube</span>
+    </div>
+  </aside>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <!-- Animated background layers -->
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__bg-noise"></div>
+      <div class="hero__bg-glow hero__bg-glow--1"></div>
+      <div class="hero__bg-glow hero__bg-glow--2"></div>
+      <div class="hero__bg-glow hero__bg-glow--3"></div>
+      <!-- Parallax star field -->
+      <canvas class="hero__stars" id="starsCanvas" aria-hidden="true"></canvas>
+    </div>
+
+    <!-- Parallax wrapper moves with cursor -->
+    <div class="hero__parallax" id="heroParallax">
+      <div class="hero__content">
+        <h1 class="hero__title" id="heroTitle">
+          <span class="hero__title-char" aria-hidden="true">J</span><span class="hero__title-char" aria-hidden="true">B</span><span class="hero__title-char" aria-hidden="true">A</span><span class="hero__title-char" aria-hidden="true">S</span>
+          <!-- Screen-reader text -->
+          <span class="sr-only">JBAS</span>
+        </h1>
+        <p class="hero__subtitle" id="heroSubtitle">Engineering aerospace systems beyond the classroom.</p>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll-indicator" aria-hidden="true">
+      <div class="scroll-line">
+        <div class="scroll-line__inner"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROGRAMS ===================== -->
+  <section class="programs" id="programs" aria-label="Programs">
+    <div class="programs__grid">
+
+      <!-- STRATOS -->
+      <article class="program-card" data-index="0" aria-label="STRATOS — High-Altitude Balloon System">
+        <div class="program-card__inner">
+          <div class="program-card__bg-texture" aria-hidden="true"></div>
+          <div class="program-card__lines" aria-hidden="true">
+            <div class="card-line card-line--h"></div>
+            <div class="card-line card-line--v"></div>
+          </div>
+          <div class="program-card__label">
+            <div class="program-card__name-wrap">
+              <span class="program-card__name">STRATOS</span>
+              <span class="program-card__sub">High-Altitude Balloon System</span>
+            </div>
+          </div>
+          <div class="program-card__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="2" y="2" width="20" height="20" rx="1"/>
+              <line x1="8" y1="16" x2="16" y2="8"/>
+              <polyline points="10,8 16,8 16,14"/>
+            </svg>
+          </div>
+        </div>
+      </article>
+
+      <!-- ARMSTRONG -->
+      <article class="program-card" data-index="1" aria-label="ARMSTRONG — Amateur Rocketry Program">
+        <div class="program-card__inner">
+          <div class="program-card__bg-texture" aria-hidden="true"></div>
+          <div class="program-card__lines" aria-hidden="true">
+            <div class="card-line card-line--h"></div>
+            <div class="card-line card-line--v"></div>
+          </div>
+          <div class="program-card__label">
+            <div class="program-card__name-wrap">
+              <span class="program-card__name">ARMSTRONG</span>
+              <span class="program-card__sub">Amateur Rocketry Program</span>
+            </div>
+          </div>
+          <div class="program-card__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="2" y="2" width="20" height="20" rx="1"/>
+              <line x1="8" y1="16" x2="16" y2="8"/>
+              <polyline points="10,8 16,8 16,14"/>
+            </svg>
+          </div>
+        </div>
+      </article>
+
+      <!-- AEROMED -->
+      <article class="program-card" data-index="2" aria-label="AEROMED — Autonomous UAV Logistics">
+        <div class="program-card__inner">
+          <div class="program-card__bg-texture" aria-hidden="true"></div>
+          <div class="program-card__lines" aria-hidden="true">
+            <div class="card-line card-line--h"></div>
+            <div class="card-line card-line--v"></div>
+          </div>
+          <div class="program-card__label">
+            <div class="program-card__name-wrap">
+              <span class="program-card__name">AEROMED</span>
+              <span class="program-card__sub">Autonomous UAV Logistics</span>
+            </div>
+          </div>
+          <div class="program-card__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="2" y="2" width="20" height="20" rx="1"/>
+              <line x1="8" y1="16" x2="16" y2="8"/>
+              <polyline points="10,8 16,8 16,14"/>
+            </svg>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" id="footer">
+    <div class="footer__inner">
+      <div class="footer__left">
+        <a href="#" aria-label="JBAS — scroll to top" class="footer__logo-link">
+          <img src="assets/jbas-logo.png" alt="JBAS Logo" class="footer__logo" />
+        </a>
+        <p class="footer__tagline">Journey Beyond Aerospace Society</p>
+      </div>
+      <div class="footer__right">
+        <p class="footer__heading">SOCIAL</p>
+        <nav class="footer__links" aria-label="Social links">
+          <span class="footer__link footer__link--muted">YouTube <span class="footer__soon">— coming soon</span></span>
+          <a class="footer__link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="footer__link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2025 JBAS. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
