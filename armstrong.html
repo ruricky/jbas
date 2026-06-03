@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARMSTRONG — Amateur Rocketry Program | JBAS</title>
+  <meta name="description" content="ARMSTRONG is the JBAS amateur rocketry program — designing, building, and flight-testing high-power rockets through a structured certification pathway." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="armstrong.css" />
+</head>
+<body>
+
+  <div class="atmos" aria-hidden="true">
+    <div class="atmos__noise"></div>
+    <div class="atmos__glow atmos__glow--1"></div>
+    <div class="atmos__glow atmos__glow--2"></div>
+    <canvas class="atmos__stars" id="starsCanvas"></canvas>
+  </div>
+
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <a class="navbar__logo" href="/" aria-label="JBAS — home">
+      <img src="assets/jbas-logo.png" alt="JBAS Logo" height="42" />
+    </a>
+    <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+  <aside class="slide-menu" id="slideMenu" aria-hidden="true">
+    <nav class="slide-menu__nav" aria-label="Programs">
+      <a class="slide-menu__link" href="/stratos" tabindex="-1">STRATOS</a>
+      <span class="slide-menu__link-sub">Weather Balloon</span>
+      <a class="slide-menu__link is-current" href="/armstrong" tabindex="-1" aria-current="page">ARMSTRONG</a>
+      <span class="slide-menu__link-sub">Rocketry</span>
+      <a class="slide-menu__link" href="/aeromed" tabindex="-1">AEROMED</a>
+      <span class="slide-menu__link-sub">UAV Logistics</span>
+    </nav>
+    <div class="slide-menu__section">
+      <p class="slide-menu__heading">CONTACT</p>
+      <a class="slide-menu__small-link" href="mailto:garrettrurik@gmail.com" tabindex="-1">garrettrurik@gmail.com</a>
+    </div>
+    <div class="slide-menu__section">
+      <p class="slide-menu__heading">SOCIAL</p>
+      <a class="slide-menu__small-link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub</a>
+      <a class="slide-menu__small-link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer" tabindex="-1">Instagram</a>
+      <span class="slide-menu__small-link slide-menu__small-link--muted">YouTube</span>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <header class="page-hero" id="top">
+    <div class="armstrong-hero__streak" aria-hidden="true"></div>
+    <div id="heroParallax">
+      <p class="page-hero__breadcrumb">
+        <a href="/">JBAS</a><span class="sep">/</span><span class="current">ARMSTRONG</span>
+      </p>
+      <p class="page-hero__tag"><span class="dot"></span>Amateur Rocketry Program</p>
+      <h1 class="page-hero__title">ARM<span class="stroke">STRONG</span></h1>
+      <p class="page-hero__lead">
+        ARMSTRONG is where engineering meets ignition. Members design, build, and fly progressively
+        more capable rockets — mastering propulsion, aerodynamics, and recovery while working toward
+        high-power certification through real flight testing.
+      </p>
+      <div class="page-hero__meta">
+        <div><span class="m-val"><span data-count="3">0</span></span><span class="m-lab">Certification Levels</span></div>
+        <div><span class="m-val">Mach <span data-count="1" data-decimals="0">0</span>+</span><span class="m-lab">Design Envelope</span></div>
+        <div><span class="m-val"><span data-count="100">0</span>%</span><span class="m-lab">Student-Built</span></div>
+        <div><span class="m-val">Iterate</span><span class="m-lab">Build · Fly · Refine</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MISSION OVERVIEW -->
+  <section class="section section--alt" aria-label="Mission Overview">
+    <div class="container split">
+      <div>
+        <p class="eyebrow reveal" data-reveal>Mission Overview</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Build a rocket. Fly it. Make the next one better.</h2>
+      </div>
+      <div>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2" style="margin-top:0">
+          ARMSTRONG runs on iteration. Every vehicle is a complete engineering problem — from
+          propulsion and stability to recovery and structures — and every flight produces data that
+          drives the next design.
+        </p>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="3">
+          Members progress from foundational model rockets toward high-power vehicles, building the
+          analysis, fabrication, and flight-operations skills that define real aerospace work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM PROGRESSION -->
+  <section class="section" aria-label="Program Progression">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Program Progression</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">A clear pathway to high-power certification.</h2>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2">
+          Members advance through defined tiers — each one unlocking larger motors, more complex
+          vehicles, and greater design responsibility.
+        </p>
+      </div>
+      <div class="ladder reveal" data-reveal data-reveal-delay="1">
+        <div class="ladder__step">
+          <p class="ladder__lvl">Tier 0 · Foundations</p>
+          <h3 class="ladder__title">Model</h3>
+          <p class="ladder__text">Low-power model rockets to learn stability, construction, and safe launch procedures.</p>
+        </div>
+        <div class="ladder__step">
+          <p class="ladder__lvl">Tier 1 · Level 1</p>
+          <h3 class="ladder__title">L1</h3>
+          <p class="ladder__text">First high-power certification flight on H–I class motors with single-deploy recovery.</p>
+        </div>
+        <div class="ladder__step">
+          <p class="ladder__lvl">Tier 2 · Level 2</p>
+          <h3 class="ladder__title">L2</h3>
+          <p class="ladder__text">Larger J–L motors, dual-deploy electronics, and a written aerospace knowledge exam.</p>
+        </div>
+        <div class="ladder__step">
+          <p class="ladder__lvl">Tier 3 · Advanced</p>
+          <h3 class="ladder__title">L3</h3>
+          <p class="ladder__text">Full high-power vehicles with redundant avionics, documented design, and review.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROCKET SYSTEMS -->
+  <section class="section section--alt" aria-label="Rocket Systems">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Rocket Systems</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Anatomy of an ARMSTRONG vehicle.</h2>
+      </div>
+      <div class="rocket reveal" data-reveal data-reveal-delay="1">
+        <div class="rocket__art">
+          <svg class="rocket__svg" viewBox="0 0 120 320" role="img" aria-label="Rocket anatomy diagram">
+            <path class="rocket__body" d="M60 6 C82 40 86 80 86 120 L86 250 L34 250 L34 120 C34 80 38 40 60 6 Z"/>
+            <line class="rocket__line" x1="60" y1="40" x2="118" y2="40"/>
+            <line class="rocket__line" x1="86" y1="150" x2="118" y2="150"/>
+            <line class="rocket__line" x1="86" y1="235" x2="118" y2="235"/>
+            <path class="rocket__fin" d="M34 200 L8 270 L34 250 Z"/>
+            <path class="rocket__fin" d="M86 200 L112 270 L86 250 Z"/>
+            <ellipse class="rocket__flame" cx="60" cy="262" rx="13" ry="30"/>
+          </svg>
+        </div>
+        <dl class="rocket__callouts">
+          <div class="rocket__callout"><dt>Nose &amp; Recovery</dt><dd>Aerodynamic nose cone housing the parachute, shock cord, and dual-deploy altimeter electronics.</dd></div>
+          <div class="rocket__callout"><dt>Airframe</dt><dd>Lightweight composite or phenolic body tube engineered for stiffness and predictable stability.</dd></div>
+          <div class="rocket__callout"><dt>Propulsion</dt><dd>Solid-motor propulsion sized to the certification tier, retained in a machined motor mount.</dd></div>
+          <div class="rocket__callout"><dt>Fins &amp; Aerodynamics</dt><dd>CFD- and simulation-informed fin geometry tuned for stable, straight boost.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGINEERING PROCESS -->
+  <section class="section" aria-label="Engineering Process">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Engineering Process</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Disciplined design, every flight.</h2>
+      </div>
+      <div class="process reveal" data-reveal data-reveal-delay="1">
+        <article class="process__item"><h3 class="process__title">Simulate</h3><p class="process__text">Model thrust, stability margin, and predicted apogee before any hardware is cut.</p></article>
+        <article class="process__item"><h3 class="process__title">Fabricate</h3><p class="process__text">Machine, laminate, and assemble the airframe, fins, and recovery bay to spec.</p></article>
+        <article class="process__item"><h3 class="process__title">Bench Test</h3><p class="process__text">Validate altimeters, ejection charges, and recovery deployment on the ground.</p></article>
+        <article class="process__item"><h3 class="process__title">Fly</h3><p class="process__text">Launch under a formal flight card with recovery and tracking in place.</p></article>
+        <article class="process__item"><h3 class="process__title">Recover</h3><p class="process__text">Retrieve the vehicle, inspect for damage, and download flight data.</p></article>
+        <article class="process__item"><h3 class="process__title">Iterate</h3><p class="process__text">Compare predicted vs. actual performance and feed lessons into the next build.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLIGHT TESTING -->
+  <section class="section section--alt" aria-label="Flight Testing">
+    <div class="container split">
+      <div>
+        <p class="eyebrow reveal" data-reveal>Flight Testing</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Data over assumptions.</h2>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2" style="margin-top:24px">
+          Onboard avionics turn every launch into a dataset. Altitude, velocity, and acceleration
+          traces are reviewed against simulation to verify the vehicle behaved as designed.
+        </p>
+      </div>
+      <ul class="checklist reveal" data-reveal data-reveal-delay="2">
+        <li>Barometric and inertial altimeters log the full flight profile</li>
+        <li>Predicted apogee and stability margin verified post-flight</li>
+        <li>Dual-deploy recovery: drogue at apogee, main at low altitude</li>
+        <li>Structural and motor-retention inspection after every flight</li>
+        <li>Flight reports archived to inform the next design revision</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LAUNCH OPERATIONS -->
+  <section class="section" aria-label="Launch Operations">
+    <div class="container container--narrow">
+      <div class="section__head section__head--center">
+        <p class="eyebrow reveal" data-reveal>Launch Operations</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Safety-first range procedures.</h2>
+      </div>
+      <div class="timeline reveal" data-reveal data-reveal-delay="1">
+        <div class="timeline__item"><p class="timeline__phase">Pre-flight</p><h3 class="timeline__title">Readiness Review</h3><p class="timeline__text">Stability check, motor selection, recovery packing, and a documented flight card.</p></div>
+        <div class="timeline__item"><p class="timeline__phase">Setup</p><h3 class="timeline__title">Pad &amp; Range Setup</h3><p class="timeline__text">Rail alignment, igniter installation, and range-safety clearance before arming.</p></div>
+        <div class="timeline__item"><p class="timeline__phase">Launch</p><h3 class="timeline__title">Countdown &amp; Boost</h3><p class="timeline__text">Controlled countdown, ignition, and tracking through boost and coast.</p></div>
+        <div class="timeline__item"><p class="timeline__phase">Post-flight</p><h3 class="timeline__title">Recovery &amp; Debrief</h3><p class="timeline__text">Locate, recover, and debrief — closing the loop on the engineering cycle.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" aria-label="Get involved">
+    <div class="cta__inner">
+      <h2 class="cta__title reveal" data-reveal>Light the candle.</h2>
+      <p class="cta__text reveal" data-reveal data-reveal-delay="1">ARMSTRONG welcomes all students ready to design, build, and fly real rockets.</p>
+      <a class="btn reveal" data-reveal data-reveal-delay="2" href="mailto:garrettrurik@gmail.com">
+        Join the program
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__left">
+        <a href="/" aria-label="JBAS — home" class="footer__logo-link">
+          <img src="assets/jbas-logo.png" alt="JBAS Logo" class="footer__logo" />
+        </a>
+        <p class="footer__tagline">Journey Beyond Aerospace Society</p>
+      </div>
+      <div class="footer__right">
+        <p class="footer__heading">SOCIAL</p>
+        <nav class="footer__links" aria-label="Social links">
+          <span class="footer__link footer__link--muted">YouTube <span class="footer__soon">— coming soon</span></span>
+          <a class="footer__link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="footer__link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2025 JBAS. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="armstrong.js"></script>
+</body>
+</html>

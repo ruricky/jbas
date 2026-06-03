@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JBAS — Journey Beyond Aerospace Society</title>
+  <meta name="description" content="JBAS is a student-led aerospace and engineering society building real aerospace systems through hands-on engineering — high-altitude ballooning, amateur rocketry, and autonomous UAV logistics." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -28,11 +29,11 @@
   <aside class="slide-menu" id="slideMenu" aria-hidden="true">
 
     <nav class="slide-menu__nav" aria-label="Programs">
-      <a class="slide-menu__link" href="#" tabindex="-1">STRATOS</a>
+      <a class="slide-menu__link" href="/stratos" tabindex="-1">STRATOS</a>
       <span class="slide-menu__link-sub">Weather Balloon</span>
-      <a class="slide-menu__link" href="#" tabindex="-1">ARMSTRONG</a>
+      <a class="slide-menu__link" href="/armstrong" tabindex="-1">ARMSTRONG</a>
       <span class="slide-menu__link-sub">Rocketry</span>
-      <a class="slide-menu__link" href="#" tabindex="-1">AEROMED</a>
+      <a class="slide-menu__link" href="/aeromed" tabindex="-1">AEROMED</a>
       <span class="slide-menu__link-sub">UAV Logistics</span>
     </nav>
 
@@ -77,12 +78,60 @@
     </div>
   </section>
 
+  <!-- ===================== ABOUT JBAS ===================== -->
+  <section class="about" id="about" aria-label="About JBAS">
+    <div class="about__grid-lines" aria-hidden="true"></div>
+    <div class="about__inner">
+
+      <div class="about__intro">
+        <p class="about__eyebrow reveal" data-reveal>
+          <span class="about__eyebrow-dot" aria-hidden="true"></span>About JBAS
+        </p>
+        <h2 class="about__title reveal" data-reveal data-reveal-delay="1">
+          Real aerospace systems, built by students.
+        </h2>
+        <div class="about__copy">
+          <p class="reveal" data-reveal data-reveal-delay="2">
+            JBAS is a student-led aerospace and engineering society focused on building real systems through hands-on engineering. Members design, build, test, and launch projects across high-altitude ballooning, amateur rocketry, and autonomous UAV development.
+          </p>
+          <p class="reveal" data-reveal data-reveal-delay="3">
+            We exist to move beyond theory and into real engineering experience. Every project follows a complete lifecycle — from concept and design through testing, deployment, and post-mission analysis. We believe exploration and service go hand in hand, connecting technical achievement with meaningful community impact through our annual field mission in rural Guatemala.
+          </p>
+        </div>
+      </div>
+
+      <div class="about__stats" role="list">
+        <div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="2">
+          <span class="stat-card__index" aria-hidden="true">01</span>
+          <span class="stat-card__value">2025</span>
+          <span class="stat-card__label">Founded</span>
+        </div>
+        <div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="3">
+          <span class="stat-card__index" aria-hidden="true">02</span>
+          <span class="stat-card__value">3</span>
+          <span class="stat-card__label">Active Programs</span>
+        </div>
+        <div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="4">
+          <span class="stat-card__index" aria-hidden="true">03</span>
+          <span class="stat-card__value stat-card__value--sm">Rural Guatemala</span>
+          <span class="stat-card__label">Annual Field Mission</span>
+        </div>
+        <div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="5">
+          <span class="stat-card__index" aria-hidden="true">04</span>
+          <span class="stat-card__value stat-card__value--sm">All Students</span>
+          <span class="stat-card__label">Open To</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ===================== PROGRAMS ===================== -->
   <section class="programs" id="programs" aria-label="Programs">
     <div class="programs__grid">
 
       <!-- STRATOS -->
-      <article class="program-card" data-index="0" aria-label="STRATOS — High-Altitude Balloon System">
+      <a class="program-card" href="/stratos" data-index="0" aria-label="STRATOS — High-Altitude Balloon System">
         <div class="program-card__image" aria-hidden="true">
           <img src="assets/homepage-stratos-image.png" alt="" />
         </div>
@@ -106,10 +155,10 @@
             </svg>
           </div>
         </div>
-      </article>
+      </a>
 
       <!-- ARMSTRONG -->
-      <article class="program-card" data-index="1" aria-label="ARMSTRONG — Amateur Rocketry Program">
+      <a class="program-card" href="/armstrong" data-index="1" aria-label="ARMSTRONG — Amateur Rocketry Program">
         <div class="program-card__image" aria-hidden="true">
           <img src="assets/homepage-armstrong-image.png" alt="" />
         </div>
@@ -133,10 +182,10 @@
             </svg>
           </div>
         </div>
-      </article>
+      </a>
 
       <!-- AEROMED -->
-      <article class="program-card" data-index="2" aria-label="AEROMED — Autonomous UAV Logistics">
+      <a class="program-card" href="/aeromed" data-index="2" aria-label="AEROMED — Autonomous UAV Logistics">
         <div class="program-card__image" aria-hidden="true">
           <img src="assets/homepage-aeromed-image.png" alt="" />
         </div>
@@ -160,7 +209,7 @@
             </svg>
           </div>
         </div>
-      </article>
+      </a>
 
     </div>
   </section>

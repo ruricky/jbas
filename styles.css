@@ -1,7 +1,7 @@
 /* =====================================================
    JBAS — Journey Beyond Aerospace Society
-   styles.css  (v2 — refinement pass)
-   ===================================================== */
+   styles.css  (v3 — + About section)
+===================================================== */
 
 /* ---- CSS Variables ---- */
 :root {
@@ -61,12 +61,11 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 /* =====================================================
    NAVBAR
-   Fix: Elevated z-index to 300 to remain the highest layer.
-   ===================================================== */
+===================================================== */
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 300; /* Highest visible interface layer */
+  z-index: 300;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -146,12 +145,11 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 /* =====================================================
    SLIDE-OUT MENU
-   Fix: Modified to start at top: 72px and fill remaining height.
-   ===================================================== */
+===================================================== */
 .menu-overlay {
   position: fixed;
-  top: 72px; bottom: 0; left: 0; right: 0; /* Starts below navbar */
-  z-index: 100; /* Positioned behind navbar layer */
+  top: 72px; bottom: 0; left: 0; right: 0;
+  z-index: 100;
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -166,17 +164,17 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 .slide-menu {
   position: fixed;
-  top: 72px; right: 0; /* Starts below navbar */
-  z-index: 200; /* Positioned behind navbar layer */
+  top: 72px; right: 0;
+  z-index: 200;
   width: min(420px, 100vw);
-  height: calc(100dvh - 72px); /* Occupies remaining viewport height */
+  height: calc(100dvh - 72px);
   background: rgba(8,8,8,0.94);
   backdrop-filter: blur(40px) saturate(1.2);
   -webkit-backdrop-filter: blur(40px) saturate(1.2);
   border-left: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
-  padding: 48px 48px 60px; /* Reduced top padding since navbar space is omitted */
+  padding: 48px 48px 60px;
   gap: 48px;
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -246,7 +244,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 /* =====================================================
    HERO
-   ===================================================== */
+===================================================== */
 .hero {
   position: relative;
   width: 100%;
@@ -419,15 +417,174 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 @keyframes chevronBob {
   0%, 100% { transform: translateY(0); opacity: 0.35; }
-  50%       { transform: translateY(5px); opacity: 0.7; }
+  50%      { transform: translateY(5px); opacity: 0.7; }
+}
+
+/* =====================================================
+   ABOUT JBAS  (new section — matches existing language)
+===================================================== */
+.about {
+  position: relative;
+  padding: 180px 40px 120px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Subtle engineering grid motif */
+.about__grid-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 0%, transparent 80%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 0%, transparent 80%);
+  opacity: 0.7;
+}
+
+.about__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-grey);
+  margin-bottom: 28px;
+}
+.about__eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 12px 2px rgba(180,210,255,0.45);
+}
+
+.about__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: var(--color-white);
+  max-width: 16ch;
+  margin-bottom: 36px;
+}
+
+.about__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 56ch;
+}
+.about__copy p {
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 1.4vw, 1.12rem);
+  font-weight: 300;
+  line-height: 1.72;
+  color: rgba(255,255,255,0.62);
+}
+
+/* ---- Stat cards ---- */
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.01) 100%);
+  padding: 30px 26px 28px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  transition: border-color var(--t-slow) var(--ease-out),
+              transform var(--t-slow) var(--ease-out),
+              background var(--t-slow) var(--ease-out);
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(180,210,255,0.4), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-xslow) var(--ease-out);
+}
+.stat-card:hover {
+  border-color: rgba(180,210,255,0.22);
+  transform: translateY(-4px);
+  background: linear-gradient(160deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.015) 100%);
+}
+.stat-card:hover::before { transform: scaleX(1); }
+
+.stat-card__index {
+  position: absolute;
+  top: 22px; right: 24px;
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  color: var(--color-grey-dim);
+}
+.stat-card__value {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 2.9rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--color-white);
+  margin-bottom: 12px;
+}
+.stat-card__value--sm {
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  line-height: 1.12;
+}
+.stat-card__label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-grey);
+}
+
+/* ---- Reveal-on-scroll (shared) ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* =====================================================
    PROGRAMS SECTION
-   ===================================================== */
+===================================================== */
 .programs {
   position: relative;
-  padding: 160px 40px;
+  padding: 120px 40px 160px;
   z-index: 1;
 }
 
@@ -441,6 +598,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 /* ---- Program card ---- */
 .program-card {
+  display: block;
   aspect-ratio: 1 / 1;
   border-radius: 4px;
   border: 1px solid var(--color-border);
@@ -463,6 +621,11 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 .program-card:hover {
   border-color: rgba(180, 210, 255, 0.22);
+}
+.program-card:focus-visible {
+  outline: none;
+  border-color: rgba(180, 210, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(180,210,255,0.25);
 }
 
 /* ---- Card background image ---- */
@@ -626,7 +789,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 /* =====================================================
    FOOTER
-   ===================================================== */
+===================================================== */
 .footer {
   padding: 80px 40px 40px;
   border-top: 1px solid var(--color-border);
@@ -710,11 +873,22 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 /* =====================================================
    RESPONSIVE
-   ===================================================== */
+===================================================== */
+@media (max-width: 1100px) {
+  .about__inner { gap: 56px; }
+}
+
 @media (max-width: 900px) {
   .navbar { padding: 0 24px; }
 
-  .programs { padding: 100px 24px; }
+  .about { padding: 130px 24px 90px; }
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .about__title { max-width: 100%; }
+
+  .programs { padding: 90px 24px 100px; }
   .programs__grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -732,8 +906,21 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 
 @media (max-width: 600px) {
-  /* Fix: Adjust layout below mobile nav bar boundaries */
   .menu-overlay { top: 72px; }
   .slide-menu { top: 72px; height: calc(100dvh - 72px); padding: 48px 32px 48px; }
   .slide-menu__link { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+
+  .about__stats { grid-template-columns: 1fr; }
+  .stat-card { min-height: 150px; }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
 }

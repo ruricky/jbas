@@ -1,7 +1,7 @@
 /* =====================================================
    JBAS — Journey Beyond Aerospace Society
-   script.js  (v2 — refinement pass)
-   ===================================================== */
+   script.js  (v3 — + About reveal observer)
+===================================================== */
 
 'use strict';
 
@@ -11,6 +11,8 @@ const state = {
   rafId: null,
   menuOpen: false,
 };
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // =====================================================
 // STAR FIELD CANVAS
@@ -40,7 +42,7 @@ const state = {
     }));
   }
 
-  function tick(now) {
+  function tick() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const W = canvas.width, H = canvas.height;
 
@@ -199,7 +201,6 @@ const state = {
     menu.setAttribute('aria-hidden', 'true');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    // Focus selector safely targets links hidden inside the aside overlay block
     menu.querySelectorAll('.slide-menu__link, .slide-menu__small-link').forEach(el => el.setAttribute('tabindex', '-1'));
   }
 
@@ -231,6 +232,37 @@ const state = {
   });
 
   cards.forEach(card => obs.observe(card));
+})();
+
+// =====================================================
+// INTERSECTION OBSERVER — generic [data-reveal] elements
+// (About section + any future scroll-reveal content)
+// =====================================================
+(function initReveals() {
+  const items = document.querySelectorAll('[data-reveal]');
+  if (!items.length) return;
+
+  if (prefersReducedMotion) {
+    items.forEach(el => el.classList.add('revealed'));
+    return;
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+        el.style.transitionDelay = `${delay * 0.08}s`;
+        el.classList.add('revealed');
+        obs.unobserve(el);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -50px 0px',
+  });
+
+  items.forEach(el => obs.observe(el));
 })();
 
 // =====================================================

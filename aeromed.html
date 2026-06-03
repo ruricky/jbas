@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEROMED — Autonomous Medical UAV Logistics | JBAS</title>
+  <meta name="description" content="AEROMED is the flagship JBAS program — autonomous fixed-wing UAVs delivering medical payloads to rural communities in Guatemala. Engineering meets humanitarian impact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="aeromed.css" />
+</head>
+<body>
+
+  <div class="atmos" aria-hidden="true">
+    <div class="atmos__noise"></div>
+    <div class="atmos__glow atmos__glow--1"></div>
+    <div class="atmos__glow atmos__glow--2"></div>
+    <canvas class="atmos__stars" id="starsCanvas"></canvas>
+  </div>
+
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <a class="navbar__logo" href="/" aria-label="JBAS — home">
+      <img src="assets/jbas-logo.png" alt="JBAS Logo" height="42" />
+    </a>
+    <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+  <aside class="slide-menu" id="slideMenu" aria-hidden="true">
+    <nav class="slide-menu__nav" aria-label="Programs">
+      <a class="slide-menu__link" href="/stratos" tabindex="-1">STRATOS</a>
+      <span class="slide-menu__link-sub">Weather Balloon</span>
+      <a class="slide-menu__link" href="/armstrong" tabindex="-1">ARMSTRONG</a>
+      <span class="slide-menu__link-sub">Rocketry</span>
+      <a class="slide-menu__link is-current" href="/aeromed" tabindex="-1" aria-current="page">AEROMED</a>
+      <span class="slide-menu__link-sub">UAV Logistics</span>
+    </nav>
+    <div class="slide-menu__section">
+      <p class="slide-menu__heading">CONTACT</p>
+      <a class="slide-menu__small-link" href="mailto:garrettrurik@gmail.com" tabindex="-1">garrettrurik@gmail.com</a>
+    </div>
+    <div class="slide-menu__section">
+      <p class="slide-menu__heading">SOCIAL</p>
+      <a class="slide-menu__small-link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub</a>
+      <a class="slide-menu__small-link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer" tabindex="-1">Instagram</a>
+      <span class="slide-menu__small-link slide-menu__small-link--muted">YouTube</span>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <header class="page-hero" id="top">
+    <svg class="aeromed-hero__path" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-50,560 C250,520 380,300 620,320 C840,338 980,180 1260,150" />
+      <circle cx="620" cy="320" r="3"/>
+      <circle class="aeromed-hero__ping" cx="620" cy="320" r="3"/>
+      <circle cx="1180" cy="158" r="3"/>
+      <circle class="aeromed-hero__ping" cx="1180" cy="158" r="3"/>
+    </svg>
+    <div id="heroParallax">
+      <p class="page-hero__breadcrumb">
+        <a href="/">JBAS</a><span class="sep">/</span><span class="current">AEROMED</span>
+      </p>
+      <span class="flagship-badge">◆ Flagship Program</span>
+      <h1 class="page-hero__title">AERO<span class="stroke">MED</span></h1>
+      <p class="page-hero__lead">
+        Autonomous fixed-wing aircraft delivering medical payloads to communities that roads can't
+        reach. AEROMED is where advanced aerospace engineering meets humanitarian impact — our most
+        ambitious program, flown in rural Guatemala.
+      </p>
+      <div class="page-hero__meta">
+        <div><span class="m-val">Fixed-Wing</span><span class="m-lab">Autonomous Platform</span></div>
+        <div><span class="m-val">BVLOS</span><span class="m-lab">Mission Profile</span></div>
+        <div><span class="m-val">Medical</span><span class="m-lab">Payload Logistics</span></div>
+        <div><span class="m-val">Guatemala</span><span class="m-lab">Field Deployment</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STICKY TELEMETRY SUB-NAV -->
+  <nav class="subnav" aria-label="Page sections">
+    <div class="subnav__track">
+      <a class="subnav__link active" href="#mission">Mission</a>
+      <a class="subnav__link" href="#challenge">The Challenge</a>
+      <a class="subnav__link" href="#why">Why Guatemala</a>
+      <a class="subnav__link" href="#architecture">Architecture</a>
+      <a class="subnav__link" href="#aircraft">Aircraft</a>
+      <a class="subnav__link" href="#avionics">Avionics</a>
+      <a class="subnav__link" href="#payload">Payload</a>
+      <a class="subnav__link" href="#regions">Target Regions</a>
+      <a class="subnav__link" href="#roadmap">Roadmap</a>
+      <a class="subnav__link" href="#field">Field Mission</a>
+      <a class="subnav__link" href="#impact">Future Impact</a>
+    </div>
+  </nav>
+
+  <!-- MISSION -->
+  <section class="section" id="mission" aria-label="Mission">
+    <div class="container split">
+      <div>
+        <p class="eyebrow reveal" data-reveal>Mission</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Engineering that reaches the unreachable.</h2>
+      </div>
+      <div>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2" style="margin-top:0">
+          AEROMED designs autonomous aircraft that carry essential medical supplies — vaccines,
+          medications, and diagnostic samples — across terrain where ground transport is slow,
+          unreliable, or impossible.
+        </p>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="3">
+          It is the fullest expression of the JBAS philosophy: a complete engineering lifecycle
+          applied to a problem that genuinely matters, connecting technical achievement with
+          measurable community impact.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CHALLENGE -->
+  <section class="section section--alt" id="challenge" aria-label="The Challenge">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>The Challenge</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">The last mile is the hardest mile.</h2>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2">
+          In rural and mountainous regions, the gap between a clinic and a community is measured in
+          hours of difficult travel — not kilometers. Time-critical medical supplies are the first
+          casualty of that distance.
+        </p>
+      </div>
+      <div class="bigstat reveal" data-reveal data-reveal-delay="1">
+        <div class="bigstat__item">
+          <div class="bigstat__val">Hours</div>
+          <p class="bigstat__lab">Ground travel times across mountainous terrain delay urgent deliveries.</p>
+        </div>
+        <div class="bigstat__item">
+          <div class="bigstat__val">Seasonal</div>
+          <p class="bigstat__lab">Rainy-season roads become impassable, cutting communities off entirely.</p>
+        </div>
+        <div class="bigstat__item">
+          <div class="bigstat__val">Cold-chain</div>
+          <p class="bigstat__lab">Vaccines and biologics degrade when transit is slow or unreliable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY GUATEMALA -->
+  <section class="section" id="why" aria-label="Why Guatemala">
+    <div class="container split">
+      <div>
+        <p class="eyebrow reveal" data-reveal>Why Guatemala</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">A real environment, a real need.</h2>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2" style="margin-top:24px">
+          Guatemala's highlands combine dispersed communities, demanding terrain, and limited
+          infrastructure — exactly the conditions where autonomous aerial logistics can make a
+          tangible difference. It is also home, which keeps our work grounded in the people it serves.
+        </p>
+      </div>
+      <ul class="checklist reveal" data-reveal data-reveal-delay="2">
+        <li>Mountainous, fragmented geography that isolates rural clinics</li>
+        <li>Communities where road access is seasonal or absent</li>
+        <li>An existing JBAS annual field mission to build on</li>
+        <li>Direct local relationships that ground the engineering in real need</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TECHNICAL ARCHITECTURE -->
+  <section class="section section--alt" id="architecture" aria-label="Technical Architecture">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Technical Architecture</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">One integrated flight system.</h2>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2">
+          AEROMED is engineered as a complete system — airframe, avionics, payload, and ground
+          operations working as a single mission architecture.
+        </p>
+      </div>
+      <div class="arch reveal" data-reveal data-reveal-delay="1">
+        <div class="arch__node"><p class="arch__tier">Layer 01 · Airframe</p><h3 class="arch__name">Fixed-Wing Platform</h3><p class="arch__desc">Efficient long-range airframe optimized for cruise endurance and payload capacity.</p></div>
+        <div class="arch__node"><p class="arch__tier">Layer 02 · Avionics</p><h3 class="arch__name">Autopilot &amp; Sensing</h3><p class="arch__desc">Flight controller, GNSS, and airspeed sensing executing autonomous waypoint missions.</p></div>
+        <div class="arch__node"><p class="arch__tier">Layer 03 · Payload</p><h3 class="arch__name">Delivery Mechanism</h3><p class="arch__desc">Secured medical payload bay with a controlled, precise release system.</p></div>
+        <div class="arch__node"><p class="arch__tier">Layer 04 · Comms</p><h3 class="arch__name">Telemetry Link</h3><p class="arch__desc">Long-range radio link streaming live telemetry and mission status to the ground.</p></div>
+        <div class="arch__node"><p class="arch__tier">Layer 05 · Ground</p><h3 class="arch__name">Ground Control Station</h3><p class="arch__desc">Mission planning, live monitoring, and operator oversight throughout the flight.</p></div>
+        <div class="arch__node"><p class="arch__tier">Layer 06 · Safety</p><h3 class="arch__name">Failsafe Systems</h3><p class="arch__desc">Return-to-launch, geofencing, and recovery logic for safe autonomous operation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AIRCRAFT PLATFORM -->
+  <section class="section" id="aircraft" aria-label="Aircraft Platform">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Aircraft Platform</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Built for range, endurance, and payload.</h2>
+      </div>
+      <div class="aircraft reveal" data-reveal data-reveal-delay="1">
+        <div class="aircraft__top">
+          <p class="aircraft__name">Fixed-Wing UAV — Logistics Configuration</p>
+          <p class="aircraft__tag">Cruise-efficient airframe for medical delivery missions</p>
+        </div>
+        <div class="aircraft__specs">
+          <div class="aircraft__spec"><span class="v">Fixed-Wing</span><span class="l">Configuration</span></div>
+          <div class="aircraft__spec"><span class="v">Long-Range</span><span class="l">Mission Profile</span></div>
+          <div class="aircraft__spec"><span class="v">High Endurance</span><span class="l">Flight Time</span></div>
+          <div class="aircraft__spec"><span class="v">Modular Bay</span><span class="l">Payload</span></div>
+        </div>
+      </div>
+      <p class="section__lead reveal" data-reveal data-reveal-delay="2">
+        A fixed-wing layout is chosen deliberately: it delivers far greater range and energy
+        efficiency than multirotor designs, making it the right platform for covering long distances
+        between communities on a single flight.
+      </p>
+    </div>
+  </section>
+
+  <!-- AUTOPILOT & AVIONICS -->
+  <section class="section section--alt" id="avionics" aria-label="Autopilot and Avionics">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Autopilot &amp; Avionics</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Autonomy from takeoff to touchdown.</h2>
+      </div>
+      <div class="grid grid--3">
+        <article class="card reveal" data-reveal data-reveal-delay="1"><span class="card__num">01 / FLIGHT CONTROL</span><h3 class="card__title">Autopilot Stack</h3><p class="card__text">An open flight-controller stack executes fully autonomous waypoint missions with stabilized control across the flight envelope.</p></article>
+        <article class="card reveal" data-reveal data-reveal-delay="2"><span class="card__num">02 / NAVIGATION</span><h3 class="card__title">GNSS &amp; Sensing</h3><p class="card__text">Satellite navigation fused with airspeed, barometric, and inertial sensing for precise positioning and route holding.</p></article>
+        <article class="card reveal" data-reveal data-reveal-delay="3"><span class="card__num">03 / LINK</span><h3 class="card__title">Telemetry &amp; Control</h3><p class="card__text">A long-range radio link provides live telemetry, mission updates, and operator oversight throughout the flight.</p></article>
+        <article class="card reveal" data-reveal data-reveal-delay="1"><span class="card__num">04 / SAFETY</span><h3 class="card__title">Failsafes &amp; Geofencing</h3><p class="card__text">Return-to-launch, altitude and boundary geofencing, and loss-of-link logic keep every mission contained and recoverable.</p></article>
+        <article class="card reveal" data-reveal data-reveal-delay="2"><span class="card__num">05 / PLANNING</span><h3 class="card__title">Mission Planning</h3><p class="card__text">Routes are planned and validated on the ground station, accounting for terrain, range, and delivery coordinates.</p></article>
+        <article class="card reveal" data-reveal data-reveal-delay="3"><span class="card__num">06 / LOGGING</span><h3 class="card__title">Flight Data</h3><p class="card__text">Full mission logs enable post-flight analysis, performance tuning, and continuous reliability improvement.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAYLOAD DELIVERY SYSTEM -->
+  <section class="section" id="payload" aria-label="Payload Delivery System">
+    <div class="container split">
+      <div>
+        <p class="eyebrow reveal" data-reveal>Payload Delivery System</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Precise, protected, repeatable.</h2>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2" style="margin-top:24px">
+          The payload system is engineered around the cargo it carries — keeping medical supplies
+          secure and intact in flight, then releasing them accurately at the destination.
+        </p>
+      </div>
+      <ul class="checklist reveal" data-reveal data-reveal-delay="2">
+        <li>Secured payload bay sized for vaccines, medications, and samples</li>
+        <li>Controlled release mechanism for accurate, repeatable delivery</li>
+        <li>Protective packaging to preserve sensitive medical cargo in flight</li>
+        <li>Delivery coordinates integrated directly into the mission plan</li>
+        <li>Designed for fast turnaround between successive flights</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TARGET REGIONS -->
+  <section class="section section--alt" id="regions" aria-label="Target Regions">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Target Regions</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Where AEROMED flies.</h2>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2">
+          Initial operations focus on Guatemala's highland and remote departments — regions where
+          terrain and infrastructure create the steepest barriers to medical access.
+        </p>
+      </div>
+      <div class="regions reveal" data-reveal data-reveal-delay="1">
+        <div class="region"><p class="region__coord">14.5°N · 91.5°W</p><h3 class="region__name">Western Highlands</h3><p class="region__text">Dispersed mountain communities where road travel between clinics is slow and weather-dependent.</p></div>
+        <div class="region"><p class="region__coord">15.5°N · 90.3°W</p><h3 class="region__name">Northern Remote Zones</h3><p class="region__text">Low-density regions with long distances between health posts and limited infrastructure.</p></div>
+        <div class="region"><p class="region__coord">14.8°N · 89.5°W</p><h3 class="region__name">Eastern Rural Corridors</h3><p class="region__text">Communities cut off seasonally by rainfall, where aerial delivery offers a reliable alternative.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGINEERING ROADMAP -->
+  <section class="section" id="roadmap" aria-label="Engineering Roadmap">
+    <div class="container container--narrow">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Engineering Roadmap</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">From prototype to field-proven.</h2>
+      </div>
+      <div class="timeline reveal" data-reveal data-reveal-delay="1">
+        <div class="timeline__item"><p class="timeline__phase">Phase 01</p><h3 class="timeline__title">Platform &amp; Avionics</h3><p class="timeline__text">Establish the fixed-wing airframe and autopilot stack; validate stable autonomous flight.</p></div>
+        <div class="timeline__item"><p class="timeline__phase">Phase 02</p><h3 class="timeline__title">Payload Integration</h3><p class="timeline__text">Design and test the delivery bay and release mechanism with representative medical payloads.</p></div>
+        <div class="timeline__item"><p class="timeline__phase">Phase 03</p><h3 class="timeline__title">Range &amp; Endurance Testing</h3><p class="timeline__text">Extend mission range, verify failsafes, and prove repeatable autonomous delivery.</p></div>
+        <div class="timeline__item"><p class="timeline__phase">Phase 04</p><h3 class="timeline__title">Field Deployment</h3><p class="timeline__text">Operate within the annual field mission, delivering to real communities under real conditions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANNUAL FIELD MISSION INTEGRATION -->
+  <section class="section section--alt" id="field" aria-label="Annual Field Mission Integration">
+    <div class="container split--wide split">
+      <div>
+        <p class="eyebrow reveal" data-reveal>Field Mission Integration</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Engineering meets service.</h2>
+      </div>
+      <div>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2" style="margin-top:0">
+          AEROMED is the technical heart of the JBAS annual field mission in rural Guatemala. Each
+          year, the program moves from the lab into the field — deploying aircraft alongside local
+          partners and turning a season of engineering into direct community impact.
+        </p>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="3">
+          This is where the full lifecycle closes: concept, design, testing, deployment, and
+          post-mission analysis, all in service of people who benefit from it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE IMPACT -->
+  <section class="section" id="impact" aria-label="Future Impact">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <p class="eyebrow reveal" data-reveal>Future Impact</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">A platform that scales with the need.</h2>
+      </div>
+      <div class="impact reveal" data-reveal data-reveal-delay="1">
+        <div class="metric"><div class="metric__val">Faster</div><span class="metric__lab">Time-critical delivery</span></div>
+        <div class="metric"><div class="metric__val">Wider</div><span class="metric__lab">Communities reached</span></div>
+        <div class="metric"><div class="metric__val">Repeatable</div><span class="metric__lab">Mission model to scale</span></div>
+      </div>
+      <p class="section__lead reveal" data-reveal data-reveal-delay="2" style="text-align:center;margin-left:auto;margin-right:auto">
+        As the platform matures, AEROMED can expand to more regions, larger payloads, and longer
+        ranges — a student-built model for autonomous medical logistics with real humanitarian reach.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" aria-label="Get involved">
+    <div class="cta__inner">
+      <h2 class="cta__title reveal" data-reveal>Build aerospace that matters.</h2>
+      <p class="cta__text reveal" data-reveal data-reveal-delay="1">AEROMED is open to all students ready to engineer autonomous systems with real-world impact.</p>
+      <a class="btn reveal" data-reveal data-reveal-delay="2" href="mailto:garrettrurik@gmail.com">
+        Join the program
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__left">
+        <a href="/" aria-label="JBAS — home" class="footer__logo-link">
+          <img src="assets/jbas-logo.png" alt="JBAS Logo" class="footer__logo" />
+        </a>
+        <p class="footer__tagline">Journey Beyond Aerospace Society</p>
+      </div>
+      <div class="footer__right">
+        <p class="footer__heading">SOCIAL</p>
+        <nav class="footer__links" aria-label="Social links">
+          <span class="footer__link footer__link--muted">YouTube <span class="footer__soon">— coming soon</span></span>
+          <a class="footer__link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="footer__link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2025 JBAS. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="aeromed.js"></script>
+</body>
+</html>

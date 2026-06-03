@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STRATOS — High-Altitude Balloon Systems | JBAS</title>
+  <meta name="description" content="STRATOS is the JBAS high-altitude balloon program — reaching the edge of space at 80,000–100,000 ft with custom sensor payloads, live GPS tracking, and full recovery operations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="stratos.css" />
+</head>
+<body>
+
+  <!-- Atmospheric backdrop (fixed) -->
+  <div class="atmos" aria-hidden="true">
+    <div class="atmos__noise"></div>
+    <div class="atmos__glow atmos__glow--1"></div>
+    <div class="atmos__glow atmos__glow--2"></div>
+    <canvas class="atmos__stars" id="starsCanvas"></canvas>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <a class="navbar__logo" href="/" aria-label="JBAS — home">
+      <img src="assets/jbas-logo.png" alt="JBAS Logo" height="42" />
+    </a>
+    <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+  </nav>
+
+  <!-- SLIDE MENU -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+  <aside class="slide-menu" id="slideMenu" aria-hidden="true">
+    <nav class="slide-menu__nav" aria-label="Programs">
+      <a class="slide-menu__link is-current" href="/stratos" tabindex="-1" aria-current="page">STRATOS</a>
+      <span class="slide-menu__link-sub">Weather Balloon</span>
+      <a class="slide-menu__link" href="/armstrong" tabindex="-1">ARMSTRONG</a>
+      <span class="slide-menu__link-sub">Rocketry</span>
+      <a class="slide-menu__link" href="/aeromed" tabindex="-1">AEROMED</a>
+      <span class="slide-menu__link-sub">UAV Logistics</span>
+    </nav>
+    <div class="slide-menu__section">
+      <p class="slide-menu__heading">CONTACT</p>
+      <a class="slide-menu__small-link" href="mailto:garrettrurik@gmail.com" tabindex="-1">garrettrurik@gmail.com</a>
+    </div>
+    <div class="slide-menu__section">
+      <p class="slide-menu__heading">SOCIAL</p>
+      <a class="slide-menu__small-link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub</a>
+      <a class="slide-menu__small-link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer" tabindex="-1">Instagram</a>
+      <span class="slide-menu__small-link slide-menu__small-link--muted">YouTube</span>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <header class="page-hero" id="top">
+    <div class="stratos-hero__scale" aria-hidden="true">
+      <span class="stratos-hero__tick">100k ft · Near space</span>
+      <span class="stratos-hero__tick">60k ft · Stratosphere</span>
+      <span class="stratos-hero__tick">35k ft · Cruise altitude</span>
+      <span class="stratos-hero__tick">10k ft · Troposphere</span>
+      <span class="stratos-hero__tick">0 ft · Launch site</span>
+    </div>
+    <div id="heroParallax">
+      <p class="page-hero__breadcrumb">
+        <a href="/">JBAS</a><span class="sep">/</span><span class="current">STRATOS</span>
+      </p>
+      <p class="page-hero__tag"><span class="dot"></span>High-Altitude Balloon Systems</p>
+      <h1 class="page-hero__title">STRA<span class="stroke">TOS</span></h1>
+      <p class="page-hero__lead">
+        We fly engineered payloads to the edge of space. STRATOS designs, launches, and recovers
+        high-altitude balloon systems carrying scientific instruments into the stratosphere —
+        capturing atmospheric data and imagery from altitudes commercial aircraft never reach.
+      </p>
+      <div class="page-hero__meta">
+        <div><span class="m-val"><span id="altCounter">0</span> ft</span><span class="m-lab">Target Altitude</span></div>
+        <div><span class="m-val">-60°C</span><span class="m-lab">Payload Survival</span></div>
+        <div><span class="m-val">~2 hr</span><span class="m-lab">Flight Duration</span></div>
+        <div><span class="m-val">99%</span><span class="m-lab">Atmosphere Below</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MISSION OVERVIEW -->
+  <section class="section section--alt" aria-label="Mission Overview">
+    <div class="container split">
+      <div class="section__head" style="margin-bottom:0">
+        <p class="eyebrow reveal" data-reveal>Mission Overview</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Reaching the stratosphere with student-built hardware.</h2>
+      </div>
+      <div>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2" style="margin-top:0">
+          Each STRATOS mission lifts a custom payload into near-space conditions on a latex weather
+          balloon, gathering temperature, pressure, humidity, and radiation data alongside
+          high-resolution imagery of the curvature of the Earth.
+        </p>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="3">
+          Members own the full lifecycle — mission planning, payload integration, predictive flight
+          modeling, launch operations, live tracking, and field recovery — turning atmospheric
+          science into hands-on aerospace engineering.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAYLOAD SYSTEMS -->
+  <section class="section" aria-label="Payload Systems">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Payload Systems</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Engineered to survive near-space.</h2>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2">
+          The payload is a self-contained instrumentation platform built to operate in extreme cold,
+          low pressure, and high UV exposure throughout the flight.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        <article class="card reveal" data-reveal data-reveal-delay="1">
+          <span class="card__num">01 / SENSORS</span>
+          <h3 class="card__title">Atmospheric Sensor Package</h3>
+          <p class="card__text">Temperature, barometric pressure, humidity, and UV sensors log the full vertical profile of the atmosphere across every altitude band.</p>
+        </article>
+        <article class="card reveal" data-reveal data-reveal-delay="2">
+          <span class="card__num">02 / IMAGING</span>
+          <h3 class="card__title">Camera Systems</h3>
+          <p class="card__text">Stabilized cameras capture wide-angle stills and continuous video of the stratosphere and the visible curvature of the Earth.</p>
+        </article>
+        <article class="card reveal" data-reveal data-reveal-delay="3">
+          <span class="card__num">03 / TRACKING</span>
+          <h3 class="card__title">GPS &amp; Telemetry</h3>
+          <p class="card__text">Dual GPS and radio telemetry transmit live position and altitude, enabling real-time tracking and precise recovery coordination.</p>
+        </article>
+        <article class="card reveal" data-reveal data-reveal-delay="1">
+          <span class="card__num">04 / DATA</span>
+          <h3 class="card__title">Onboard Data Logging</h3>
+          <p class="card__text">An onboard flight computer timestamps and stores every sensor reading to redundant storage for full post-mission analysis.</p>
+        </article>
+        <article class="card reveal" data-reveal data-reveal-delay="2">
+          <span class="card__num">05 / POWER</span>
+          <h3 class="card__title">Cold-Rated Power</h3>
+          <p class="card__text">Lithium cell packs and insulated enclosures keep electronics within operating range at temperatures down to -60°C.</p>
+        </article>
+        <article class="card reveal" data-reveal data-reveal-delay="3">
+          <span class="card__num">06 / STRUCTURE</span>
+          <h3 class="card__title">Lightweight Airframe</h3>
+          <p class="card__text">A foam-and-composite enclosure protects the payload through ascent, burst, and a high-velocity descent before parachute deployment.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLIGHT PROFILE -->
+  <section class="section section--alt" aria-label="Flight Profile">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Flight Profile</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">From launch site to near space and back.</h2>
+      </div>
+      <div class="flight-profile reveal" id="flightProfile" data-reveal data-reveal-delay="1">
+        <div class="flight-profile__grid" aria-hidden="true"></div>
+        <svg class="flight-profile__svg" viewBox="0 0 900 320" role="img" aria-label="Flight profile from launch through burst to recovery">
+          <defs>
+            <linearGradient id="stratosFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(150,205,255,0.22)" />
+              <stop offset="100%" stop-color="rgba(150,205,255,0)" />
+            </linearGradient>
+          </defs>
+          <path class="flight-profile__area" d="M40,290 C200,250 230,70 380,55 C470,46 480,250 700,170 L760,300 L40,300 Z" />
+          <path class="flight-profile__path" d="M40,290 C200,250 230,70 380,55 C470,46 480,250 700,170 L760,300" />
+          <g class="fp-node"><circle cx="40" cy="290" r="6"/><text x="40" y="315" text-anchor="middle">Launch</text><text class="fp-alt" x="40" y="278" text-anchor="middle">0 ft</text></g>
+          <g class="fp-node"><circle cx="230" cy="120" r="6"/><text x="230" y="108" text-anchor="middle">Ascent</text><text class="fp-alt" x="230" y="145" text-anchor="middle">~1,000 ft/min</text></g>
+          <g class="fp-node"><circle cx="380" cy="55" r="6"/><text x="380" y="43" text-anchor="middle">Burst</text><text class="fp-alt" x="380" y="30" text-anchor="middle">~100,000 ft</text></g>
+          <g class="fp-node"><circle cx="560" cy="150" r="6"/><text x="560" y="138" text-anchor="middle">Descent</text><text class="fp-alt" x="560" y="175" text-anchor="middle">Parachute</text></g>
+          <g class="fp-node"><circle cx="700" cy="170" r="6"/><text x="700" y="158" text-anchor="middle">Recovery</text><text class="fp-alt" x="700" y="195" text-anchor="middle">Touchdown</text></g>
+        </svg>
+        <div class="flight-profile__legend">
+          <div>Ascent rate<strong>~5 m/s</strong></div>
+          <div>Burst altitude<strong>80–100k ft</strong></div>
+          <div>Descent<strong>Parachute</strong></div>
+          <div>Downrange<strong>20–80 km</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOVERY OPERATIONS -->
+  <section class="section" aria-label="Recovery Operations">
+    <div class="container split">
+      <div>
+        <p class="eyebrow reveal" data-reveal>Recovery Operations</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">Tracked, predicted, and recovered.</h2>
+        <p class="section__lead reveal" data-reveal data-reveal-delay="2" style="margin-top:24px">
+          Recovery begins before launch. Predictive models forecast the landing zone using wind data
+          and burst estimates, while live telemetry guides the chase team to touchdown.
+        </p>
+      </div>
+      <ul class="checklist reveal" data-reveal data-reveal-delay="2">
+        <li>Pre-flight burst and trajectory prediction from wind soundings</li>
+        <li>Live GPS telemetry streamed to the ground station during flight</li>
+        <li>Radio direction-finding as backup to satellite tracking</li>
+        <li>Field chase team coordinated to the predicted landing zone</li>
+        <li>Payload retrieval, data download, and post-mission debrief</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ENGINEERING SKILLS -->
+  <section class="section section--alt" aria-label="Engineering Skills Developed">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal" data-reveal>Engineering Skills Developed</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">What members take away.</h2>
+      </div>
+      <div class="grid grid--4">
+        <div class="metric reveal" data-reveal data-reveal-delay="1"><div class="metric__val">Embedded</div><span class="metric__lab">Sensors &amp; Firmware</span></div>
+        <div class="metric reveal" data-reveal data-reveal-delay="2"><div class="metric__val">Comms</div><span class="metric__lab">RF &amp; Telemetry</span></div>
+        <div class="metric reveal" data-reveal data-reveal-delay="3"><div class="metric__val">Mech</div><span class="metric__lab">Payload Structures</span></div>
+        <div class="metric reveal" data-reveal data-reveal-delay="4"><div class="metric__val">Data</div><span class="metric__lab">Analysis &amp; Modeling</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANNUAL LAUNCH CAMPAIGN -->
+  <section class="section" aria-label="Annual Launch Campaign">
+    <div class="container container--narrow">
+      <div class="section__head section__head--center">
+        <p class="eyebrow reveal" data-reveal>Annual Launch Campaign</p>
+        <h2 class="section__title reveal" data-reveal data-reveal-delay="1">One season, one launch, full ownership.</h2>
+      </div>
+      <div class="timeline reveal" data-reveal data-reveal-delay="1">
+        <div class="timeline__item">
+          <p class="timeline__phase">Phase 01 — Design</p>
+          <h3 class="timeline__title">Payload &amp; Mission Design</h3>
+          <p class="timeline__text">Define science objectives, select sensors, and design the payload enclosure and power budget.</p>
+        </div>
+        <div class="timeline__item">
+          <p class="timeline__phase">Phase 02 — Build</p>
+          <h3 class="timeline__title">Integration &amp; Bench Testing</h3>
+          <p class="timeline__text">Assemble electronics, validate logging and telemetry, and run thermal and drop tests before flight.</p>
+        </div>
+        <div class="timeline__item">
+          <p class="timeline__phase">Phase 03 — Launch</p>
+          <h3 class="timeline__title">Launch Day Operations</h3>
+          <p class="timeline__text">Fill, check, and release the balloon, then track the ascent live from the ground station.</p>
+        </div>
+        <div class="timeline__item">
+          <p class="timeline__phase">Phase 04 — Analyze</p>
+          <h3 class="timeline__title">Recovery &amp; Post-Mission Review</h3>
+          <p class="timeline__text">Recover the payload, process flight data and imagery, and publish results for the next campaign.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" aria-label="Get involved">
+    <div class="cta__inner">
+      <h2 class="cta__title reveal" data-reveal>Fly something to the edge of space.</h2>
+      <p class="cta__text reveal" data-reveal data-reveal-delay="1">STRATOS is open to all students — no prior experience required, just curiosity and commitment.</p>
+      <a class="btn reveal" data-reveal data-reveal-delay="2" href="mailto:garrettrurik@gmail.com">
+        Join the program
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__left">
+        <a href="/" aria-label="JBAS — home" class="footer__logo-link">
+          <img src="assets/jbas-logo.png" alt="JBAS Logo" class="footer__logo" />
+        </a>
+        <p class="footer__tagline">Journey Beyond Aerospace Society</p>
+      </div>
+      <div class="footer__right">
+        <p class="footer__heading">SOCIAL</p>
+        <nav class="footer__links" aria-label="Social links">
+          <span class="footer__link footer__link--muted">YouTube <span class="footer__soon">— coming soon</span></span>
+          <a class="footer__link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="footer__link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2025 JBAS. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="stratos.js"></script>
+</body>
+</html>
