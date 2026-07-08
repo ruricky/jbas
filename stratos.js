@@ -1,15 +1,16 @@
 /* =====================================================
-   JBAS — SHARED PROGRAM-PAGE BASE SCRIPT
-   Star field, navbar scroll state, slide menu,
-   scroll-reveal system, logo-to-top behaviour.
-===================================================== */
+   STRATOS — stratos.js
+   Star field, navbar scroll state, slide menu, scroll
+   reveals, logo→top, hero parallax, flight-profile draw,
+   and the animated altitude counter.
+   ===================================================== */
 
 'use strict';
 
 const JBAS = { menuOpen: false };
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ---------------- STAR FIELD ----------------
+/* ---------------- STAR FIELD ---------------- */
 (function initStars() {
   const canvas = document.getElementById('starsCanvas');
   if (!canvas) return;
@@ -48,7 +49,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   requestAnimationFrame(tick);
 })();
 
-// ---------------- NAVBAR SCROLL STATE ----------------
+/* ---------------- NAVBAR SCROLL STATE ---------------- */
 (function initNavbar() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
@@ -63,7 +64,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   update();
 })();
 
-// ---------------- SLIDE MENU ----------------
+/* ---------------- SLIDE MENU (hamburger morphs to X) ---------------- */
 (function initMenu() {
   const btn = document.getElementById('hamburgerBtn');
   const menu = document.getElementById('slideMenu');
@@ -96,7 +97,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && JBAS.menuOpen) close(); });
 })();
 
-// ---------------- SCROLL REVEAL ----------------
+/* ---------------- SCROLL REVEAL ---------------- */
 (function initReveals() {
   const items = document.querySelectorAll('[data-reveal]');
   if (!items.length) return;
@@ -117,17 +118,20 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   items.forEach(el => obs.observe(el));
 })();
 
-// ---------------- LOGO -> TOP ----------------
+/* ---------------- LOGO -> TOP ---------------- */
 (function initLogoScroll() {
   document.querySelectorAll('.navbar__logo, .footer__logo-link').forEach(el => {
     el.addEventListener('click', e => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Only intercept when already on the homepage root; otherwise let the href="/" navigate.
+      if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     });
   });
 })();
 
-// ---------------- HERO PARALLAX (subtle) ----------------
+/* ---------------- HERO PARALLAX (subtle) ---------------- */
 (function initHeroParallax() {
   const el = document.getElementById('heroParallax');
   if (!el || prefersReducedMotion) return;
@@ -144,27 +148,23 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     requestAnimationFrame(loop);
   })();
 })();
-/* =====================================================
-   STRATOS — page-specific behaviour
-   Animates the flight-profile diagram on scroll.
-===================================================== */
 
+/* ---------------- FLIGHT PROFILE — animate on scroll ---------------- */
 (function initFlightProfile() {
   const profile = document.getElementById('flightProfile');
   if (!profile) return;
 
-  const path = profile.querySelector('.flight-profile__path');
+  const paths = profile.querySelectorAll('.flight-profile__path');
   const area = profile.querySelector('.flight-profile__area');
   const nodes = profile.querySelectorAll('.fp-node');
 
-  const obs = new IntersectionObserver((entries) => {
+  const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      if (path) path.classList.add('draw');
+      paths.forEach(p => p.classList.add('draw'));
       if (area) area.classList.add('show');
-      nodes.forEach((n, i) => {
-        setTimeout(() => n.classList.add('show'), 600 + i * 320);
-      });
+      // Reveal nodes in flight order: launch, apex, descent, recovery
+      nodes.forEach((n, i) => setTimeout(() => n.classList.add('show'), 500 + i * 500));
       obs.unobserve(entry.target);
     });
   }, { threshold: 0.3 });
@@ -172,16 +172,15 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   obs.observe(profile);
 })();
 
-/* Animated altitude counter in the hero meta */
+/* ---------------- ANIMATED ALTITUDE COUNTER ---------------- */
 (function initAltitudeCounter() {
   const el = document.getElementById('altCounter');
   if (!el) return;
   const target = 100000;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced) { el.textContent = '100,000'; return; }
+  if (prefersReducedMotion) { el.textContent = '100,000'; return; }
 
   let started = false;
-  const obs = new IntersectionObserver((entries) => {
+  const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting && !started) {
         started = true;
