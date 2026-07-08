@@ -1,242 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JBAS — Journey Beyond Aerospace Society</title>
-  <meta name="description" content="JBAS is a student-led aerospace and engineering society building real aerospace systems through hands-on engineering — high-altitude ballooning, amateur rocketry, and autonomous UAV logistics." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JBAS — Journey Beyond Aerospace Society</title>
+<meta name="description" content="JBAS is a student-led aerospace and engineering society building real aerospace systems through hands-on engineering — high-altitude ballooning, amateur rocketry, and autonomous UAV logistics." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ===================== NAVBAR ===================== -->
-  <nav class="navbar" id="navbar" aria-label="Main navigation">
-    <a class="navbar__logo" href="#" aria-label="JBAS — scroll to top">
-      <img src="assets/jbas-logo.png" alt="JBAS Logo" height="42" />
-    </a>
-    <!-- Hamburger morphs into X — no separate close button -->
-    <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
-      <span class="hamburger__line"></span>
-      <span class="hamburger__line"></span>
-    </button>
-  </nav>
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+<a class="navbar__logo" href="#" aria-label="JBAS — scroll to top">
+<img src="assets/jbas-logo.png" alt="JBAS Logo" height="42" />
+</a>
+<!-- Hamburger morphs into X — no separate close button -->
+<button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+<span class="hamburger__line"></span>
+<span class="hamburger__line"></span>
+</button>
+</nav>
 
-  <!-- ===================== SLIDE-OUT MENU ===================== -->
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
-  <aside class="slide-menu" id="slideMenu" aria-hidden="true">
+<!-- ===================== SLIDE-OUT MENU ===================== -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<aside class="slide-menu" id="slideMenu" aria-hidden="true">
 
-    <nav class="slide-menu__nav" aria-label="Programs">
-      <a class="slide-menu__link" href="/stratos" tabindex="-1">STRATOS</a>
-      <span class="slide-menu__link-sub">Weather Balloon</span>
-      <a class="slide-menu__link" href="/armstrong" tabindex="-1">ARMSTRONG</a>
-      <span class="slide-menu__link-sub">Rocketry</span>
-      <a class="slide-menu__link" href="/aeromed" tabindex="-1">AEROMED</a>
-      <span class="slide-menu__link-sub">UAV Logistics</span>
-    </nav>
+<nav class="slide-menu__nav" aria-label="Programs">
+<a class="slide-menu__link" href="/stratos" tabindex="-1">STRATOS</a>
+<span class="slide-menu__link-sub">Weather Balloon</span>
+<a class="slide-menu__link" href="/armstrong" tabindex="-1">ARMSTRONG</a>
+<span class="slide-menu__link-sub">Rocketry</span>
+<a class="slide-menu__link" href="/aeromed" tabindex="-1">AEROMED</a>
+<span class="slide-menu__link-sub">UAV Logistics</span>
+</nav>
 
-    <div class="slide-menu__section">
-      <p class="slide-menu__heading">CONTACT</p>
-      <a class="slide-menu__small-link" href="mailto:garrettrurik@gmail.com" tabindex="-1">garrettrurik@gmail.com</a>
-    </div>
+<div class="slide-menu__section">
+<p class="slide-menu__heading">CONTACT</p>
+<a class="slide-menu__small-link" href="mailto:garrettrurik@gmail.com" tabindex="-1">garrettrurik@gmail.com</a>
+</div>
 
-    <div class="slide-menu__section">
-      <p class="slide-menu__heading">SOCIAL</p>
-      <a class="slide-menu__small-link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub</a>
-      <a class="slide-menu__small-link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer" tabindex="-1">Instagram</a>
-      <span class="slide-menu__small-link slide-menu__small-link--muted">YouTube</span>
-    </div>
-  </aside>
+<div class="slide-menu__section">
+<p class="slide-menu__heading">SOCIAL</p>
+<a class="slide-menu__small-link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub</a>
+<a class="slide-menu__small-link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer" tabindex="-1">Instagram</a>
+<span class="slide-menu__small-link slide-menu__small-link--muted">YouTube</span>
+</div>
+</aside>
 
-  <!-- ===================== HERO ===================== -->
-  <section class="hero" id="hero">
-    <div class="hero__bg" aria-hidden="true">
-      <div class="hero__bg-noise"></div>
-      <div class="hero__bg-glow hero__bg-glow--1"></div>
-      <div class="hero__bg-glow hero__bg-glow--2"></div>
-      <div class="hero__bg-glow hero__bg-glow--3"></div>
-      <canvas class="hero__stars" id="starsCanvas" aria-hidden="true"></canvas>
-    </div>
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="hero">
+<div class="hero__bg" aria-hidden="true">
+<div class="hero__bg-noise"></div>
+<div class="hero__bg-glow hero__bg-glow--1"></div>
+<div class="hero__bg-glow hero__bg-glow--2"></div>
+<div class="hero__bg-glow hero__bg-glow--3"></div>
+<canvas class="hero__stars" id="starsCanvas" aria-hidden="true"></canvas>
+</div>
 
-    <div class="hero__parallax" id="heroParallax">
-      <div class="hero__content">
-        <h1 class="hero__title" id="heroTitle">
-          <span class="hero__title-char" aria-hidden="true">J</span><span class="hero__title-char" aria-hidden="true">B</span><span class="hero__title-char" aria-hidden="true">A</span><span class="hero__title-char" aria-hidden="true">S</span>
-          <span class="sr-only">JBAS</span>
-        </h1>
-        <p class="hero__subtitle" id="heroSubtitle">Engineering aerospace systems beyond the classroom.</p>
-      </div>
-    </div>
+<div class="hero__parallax" id="heroParallax">
+<div class="hero__content">
+<h1 class="hero__title" id="heroTitle">
+<span class="hero__title-char" aria-hidden="true">J</span><span class="hero__title-char" aria-hidden="true">B</span><span class="hero__title-char" aria-hidden="true">A</span><span class="hero__title-char" aria-hidden="true">S</span>
+<span class="sr-only">JBAS</span>
+</h1>
+<!-- Full society name — tightly linked to the JBAS wordmark -->
+<p class="hero__fullname" id="heroFullname">Journey Beyond Aerospace Society</p>
+<p class="hero__subtitle" id="heroSubtitle">Engineering aerospace systems beyond the classroom.</p>
+</div>
+</div>
 
-    <!-- Redesigned scroll indicator — minimal chevron -->
-    <div class="hero__scroll-indicator" id="scrollIndicator" aria-hidden="true">
-      <svg class="scroll-chevron" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polyline points="1,1 10,10 19,1" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </section>
+<!-- Redesigned scroll indicator — minimal chevron -->
+<div class="hero__scroll-indicator" id="scrollIndicator" aria-hidden="true">
+<svg class="scroll-chevron" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polyline points="1,1 10,10 19,1" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+</section>
 
-  <!-- ===================== ABOUT JBAS ===================== -->
-  <section class="about" id="about" aria-label="About JBAS">
-    <div class="about__grid-lines" aria-hidden="true"></div>
-    <div class="about__inner">
+<!-- ===================== ABOUT JBAS ===================== -->
+<section class="about" id="about" aria-label="About JBAS">
+<div class="about__grid-lines" aria-hidden="true"></div>
+<div class="about__inner">
 
-      <div class="about__intro">
-        <p class="about__eyebrow reveal" data-reveal>
-          <span class="about__eyebrow-dot" aria-hidden="true"></span>About JBAS
-        </p>
-        <h2 class="about__title reveal" data-reveal data-reveal-delay="1">
-          Real aerospace systems, built by students.
-        </h2>
-        <div class="about__copy">
-          <p class="reveal" data-reveal data-reveal-delay="2">
-            JBAS is a student-led aerospace and engineering society focused on building real systems through hands-on engineering. Members design, build, test, and launch projects across high-altitude ballooning, amateur rocketry, and autonomous UAV development.
-          </p>
-          <p class="reveal" data-reveal data-reveal-delay="3">
-            We exist to move beyond theory and into real engineering experience. Every project follows a complete lifecycle — from concept and design through testing, deployment, and post-mission analysis. We believe exploration and service go hand in hand, connecting technical achievement with meaningful community impact through our annual field mission in rural Guatemala.
-          </p>
-        </div>
-      </div>
+<div class="about__intro">
+<p class="about__eyebrow reveal" data-reveal>
+<span class="about__eyebrow-dot" aria-hidden="true"></span>About JBAS
+</p>
+<h2 class="about__title reveal" data-reveal data-reveal-delay="1">
+Real aerospace systems, built by students.
+</h2>
+<div class="about__copy">
+<p class="reveal" data-reveal data-reveal-delay="2">
+JBAS is a student-led aerospace and engineering society focused on building real systems through hands-on engineering. Members design, build, test, and launch projects across high-altitude ballooning, amateur rocketry, and autonomous UAV development.
+</p>
+<p class="reveal" data-reveal data-reveal-delay="3">
+We exist to move beyond theory and into real engineering experience. Every project follows a complete lifecycle — from concept and design through testing, deployment, and post-mission analysis. We believe exploration and service go hand in hand, connecting technical achievement with meaningful community impact through our annual field mission in rural Guatemala.
+</p>
+</div>
+</div>
 
-      <div class="about__stats" role="list">
-        <div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="2">
-          <span class="stat-card__index" aria-hidden="true">01</span>
-          <span class="stat-card__value">2025</span>
-          <span class="stat-card__label">Founded</span>
-        </div>
-        <div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="3">
-          <span class="stat-card__index" aria-hidden="true">02</span>
-          <span class="stat-card__value">3</span>
-          <span class="stat-card__label">Active Programs</span>
-        </div>
-        <div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="4">
-          <span class="stat-card__index" aria-hidden="true">03</span>
-          <span class="stat-card__value stat-card__value--sm">Rural Guatemala</span>
-          <span class="stat-card__label">Annual Field Mission</span>
-        </div>
-        <div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="5">
-          <span class="stat-card__index" aria-hidden="true">04</span>
-          <span class="stat-card__value stat-card__value--sm">All Students</span>
-          <span class="stat-card__label">Open To</span>
-        </div>
-      </div>
+<div class="about__stats" role="list">
+<div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="2">
+<span class="stat-card__index" aria-hidden="true">01</span>
+<span class="stat-card__value stat-card__value--sm">All-Student</span>
+<span class="stat-card__label">Operational Team &amp; Engineering Leads</span>
+</div>
+<div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="3">
+<span class="stat-card__index" aria-hidden="true">02</span>
+<span class="stat-card__value">2× / wk</span>
+<span class="stat-card__label">Weekly Design Reviews &amp; After-School Build Sessions</span>
+</div>
+<div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="4">
+<span class="stat-card__index" aria-hidden="true">03</span>
+<span class="stat-card__value stat-card__value--sm">Rural Guate</span>
+<span class="stat-card__label">Annual Field Mission &amp; Community Service Expedition</span>
+</div>
+<div class="stat-card reveal" role="listitem" data-reveal data-reveal-delay="5">
+<span class="stat-card__index" aria-hidden="true">04</span>
+<span class="stat-card__value">3 Teams</span>
+<span class="stat-card__label">Cross-Disciplinary System Lifecycle Divisions</span>
+</div>
+</div>
 
-    </div>
-  </section>
+</div>
 
-  <!-- ===================== PROGRAMS ===================== -->
-  <section class="programs" id="programs" aria-label="Programs">
-    <div class="programs__grid">
+<!-- Full-width team photo — sharp industrial block breaking up the layout -->
+<div class="about__media">
+<figure class="about__photo reveal" data-reveal>
+<img src="teamphoto.png" alt="The JBAS operational team during a build session" loading="lazy" />
+<figcaption class="about__photo-caption">
+<span class="about__photo-tag">FIELD_01</span>
+<span class="about__photo-text">The team behind the systems.</span>
+</figcaption>
+</figure>
+</div>
+</section>
 
-      <!-- STRATOS -->
-      <a class="program-card" href="/stratos" data-index="0" aria-label="STRATOS — High-Altitude Balloon System">
-        <div class="program-card__image" aria-hidden="true">
-          <img src="assets/homepage-stratos-image.png" alt="" />
-        </div>
-        <div class="program-card__overlay" aria-hidden="true"></div>
-        <div class="program-card__inner">
-          <div class="program-card__lines" aria-hidden="true">
-            <div class="card-line card-line--h"></div>
-            <div class="card-line card-line--v"></div>
-          </div>
-          <div class="program-card__label">
-            <div class="program-card__name-wrap">
-              <span class="program-card__name">STRATOS</span>
-              <span class="program-card__sub">High-Altitude Balloon System</span>
-            </div>
-          </div>
-          <div class="program-card__arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-              <rect x="2" y="2" width="20" height="20" rx="1"/>
-              <line x1="8" y1="16" x2="16" y2="8"/>
-              <polyline points="10,8 16,8 16,14"/>
-            </svg>
-          </div>
-        </div>
-      </a>
+<!-- ===================== PROGRAMS ===================== -->
+<section class="programs" id="programs" aria-label="Programs">
+<div class="programs__grid">
 
-      <!-- ARMSTRONG -->
-      <a class="program-card" href="/armstrong" data-index="1" aria-label="ARMSTRONG — Amateur Rocketry Program">
-        <div class="program-card__image" aria-hidden="true">
-          <img src="assets/homepage-armstrong-image.png" alt="" />
-        </div>
-        <div class="program-card__overlay" aria-hidden="true"></div>
-        <div class="program-card__inner">
-          <div class="program-card__lines" aria-hidden="true">
-            <div class="card-line card-line--h"></div>
-            <div class="card-line card-line--v"></div>
-          </div>
-          <div class="program-card__label">
-            <div class="program-card__name-wrap">
-              <span class="program-card__name">ARMSTRONG</span>
-              <span class="program-card__sub">Amateur Rocketry Program</span>
-            </div>
-          </div>
-          <div class="program-card__arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-              <rect x="2" y="2" width="20" height="20" rx="1"/>
-              <line x1="8" y1="16" x2="16" y2="8"/>
-              <polyline points="10,8 16,8 16,14"/>
-            </svg>
-          </div>
-        </div>
-      </a>
+<!-- STRATOS -->
+<a class="program-card" href="/stratos" data-index="0" aria-label="STRATOS — High-Altitude Balloon System">
+<div class="program-card__image" aria-hidden="true">
+<img src="assets/homepage-stratos-image.png" alt="" />
+</div>
+<div class="program-card__overlay" aria-hidden="true"></div>
+<div class="program-card__inner">
+<div class="program-card__lines" aria-hidden="true">
+<div class="card-line card-line--h"></div>
+<div class="card-line card-line--v"></div>
+</div>
+<div class="program-card__label">
+<div class="program-card__name-wrap">
+<span class="program-card__name">STRATOS</span>
+<span class="program-card__sub">High-Altitude Balloon System</span>
+</div>
+</div>
+<div class="program-card__arrow" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+<rect x="2" y="2" width="20" height="20" rx="1"/>
+<line x1="8" y1="16" x2="16" y2="8"/>
+<polyline points="10,8 16,8 16,14"/>
+</svg>
+</div>
+</div>
+</a>
 
-      <!-- AEROMED -->
-      <a class="program-card" href="/aeromed" data-index="2" aria-label="AEROMED — Autonomous UAV Logistics">
-        <div class="program-card__image" aria-hidden="true">
-          <img src="assets/homepage-aeromed-image.png" alt="" />
-        </div>
-        <div class="program-card__overlay" aria-hidden="true"></div>
-        <div class="program-card__inner">
-          <div class="program-card__lines" aria-hidden="true">
-            <div class="card-line card-line--h"></div>
-            <div class="card-line card-line--v"></div>
-          </div>
-          <div class="program-card__label">
-            <div class="program-card__name-wrap">
-              <span class="program-card__name">AEROMED</span>
-              <span class="program-card__sub">Autonomous UAV Logistics</span>
-            </div>
-          </div>
-          <div class="program-card__arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-              <rect x="2" y="2" width="20" height="20" rx="1"/>
-              <line x1="8" y1="16" x2="16" y2="8"/>
-              <polyline points="10,8 16,8 16,14"/>
-            </svg>
-          </div>
-        </div>
-      </a>
+<!-- ARMSTRONG -->
+<a class="program-card" href="/armstrong" data-index="1" aria-label="ARMSTRONG — Amateur Rocketry Program">
+<div class="program-card__image" aria-hidden="true">
+<img src="assets/homepage-armstrong-image.png" alt="" />
+</div>
+<div class="program-card__overlay" aria-hidden="true"></div>
+<div class="program-card__inner">
+<div class="program-card__lines" aria-hidden="true">
+<div class="card-line card-line--h"></div>
+<div class="card-line card-line--v"></div>
+</div>
+<div class="program-card__label">
+<div class="program-card__name-wrap">
+<span class="program-card__name">ARMSTRONG</span>
+<span class="program-card__sub">Amateur Rocketry Program</span>
+</div>
+</div>
+<div class="program-card__arrow" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+<rect x="2" y="2" width="20" height="20" rx="1"/>
+<line x1="8" y1="16" x2="16" y2="8"/>
+<polyline points="10,8 16,8 16,14"/>
+</svg>
+</div>
+</div>
+</a>
 
-    </div>
-  </section>
+<!-- AEROMED -->
+<a class="program-card" href="/aeromed" data-index="2" aria-label="AEROMED — Autonomous UAV Logistics">
+<div class="program-card__image" aria-hidden="true">
+<img src="assets/homepage-aeromed-image.png" alt="" />
+</div>
+<div class="program-card__overlay" aria-hidden="true"></div>
+<div class="program-card__inner">
+<div class="program-card__lines" aria-hidden="true">
+<div class="card-line card-line--h"></div>
+<div class="card-line card-line--v"></div>
+</div>
+<div class="program-card__label">
+<div class="program-card__name-wrap">
+<span class="program-card__name">AEROMED</span>
+<span class="program-card__sub">Autonomous UAV Logistics</span>
+</div>
+</div>
+<div class="program-card__arrow" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+<rect x="2" y="2" width="20" height="20" rx="1"/>
+<line x1="8" y1="16" x2="16" y2="8"/>
+<polyline points="10,8 16,8 16,14"/>
+</svg>
+</div>
+</div>
+</a>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="footer" id="footer">
-    <div class="footer__inner">
-      <div class="footer__left">
-        <a href="#" aria-label="JBAS — scroll to top" class="footer__logo-link">
-          <img src="assets/jbas-logo.png" alt="JBAS Logo" class="footer__logo" />
-        </a>
-        <p class="footer__tagline">Journey Beyond Aerospace Society</p>
-      </div>
-      <div class="footer__right">
-        <p class="footer__heading">SOCIAL</p>
-        <nav class="footer__links" aria-label="Social links">
-          <span class="footer__link footer__link--muted">YouTube <span class="footer__soon">— coming soon</span></span>
-          <a class="footer__link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a class="footer__link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </nav>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <span class="footer__copy">© 2025 JBAS. All rights reserved.</span>
-    </div>
-  </footer>
+</div>
+</section>
 
-  <script src="script.js"></script>
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" id="footer">
+<div class="footer__inner">
+<div class="footer__left">
+<a href="#" aria-label="JBAS — scroll to top" class="footer__logo-link">
+<img src="assets/jbas-logo.png" alt="JBAS Logo" class="footer__logo" />
+</a>
+<p class="footer__tagline">Journey Beyond Aerospace Society</p>
+</div>
+<div class="footer__right">
+<p class="footer__heading">SOCIAL</p>
+<nav class="footer__links" aria-label="Social links">
+<span class="footer__link footer__link--muted">YouTube <span class="footer__soon">— coming soon</span></span>
+<a class="footer__link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer">Instagram</a>
+<a class="footer__link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer">GitHub</a>
+</nav>
+</div>
+</div>
+<div class="footer__bottom">
+<span class="footer__copy">© 2025 JBAS. All rights reserved.</span>
+</div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
