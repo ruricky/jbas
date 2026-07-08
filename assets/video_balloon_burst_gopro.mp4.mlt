@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="no"?>
+<mlt LC_NUMERIC="C" version="7.40.0" title="Shotcut version 26.4.30">
+  <profile description="automatic" width="1254" height="672" progressive="1" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="1253" display_aspect_den="671" frame_rate_num="60" frame_rate_den="1" colorspace="709"/>
+  <chain id="chain0" title="Shotcut version 26.4.30" in="00:00:04.050" out="00:00:40.783">
+    <property name="length">00:00:41.550</property>
+    <property name="eof">pause</property>
+    <property name="resource">Screencasts/video_balloon_burst_gopro.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="meta.media.nb_streams">1</property>
+    <property name="meta.media.0.stream.type">video</property>
+    <property name="meta.media.0.stream.frame_rate">60</property>
+    <property name="meta.media.0.stream.sample_aspect_ratio">1</property>
+    <property name="meta.media.0.codec.width">1253</property>
+    <property name="meta.media.0.codec.height">671</property>
+    <property name="meta.media.0.codec.rotate">0</property>
+    <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+    <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+    <property name="meta.media.0.codec.colorspace">709</property>
+    <property name="meta.media.0.codec.name">libvpx-vp9</property>
+    <property name="meta.media.0.codec.long_name">libvpx VP9</property>
+    <property name="meta.media.0.codec.bit_rate">0</property>
+    <property name="meta.attr.0.stream.DURATION.markup">00:00:41.546000000</property>
+    <property name="meta.attr.ENCODER.markup">Lavf62.12.102</property>
+    <property name="seekable">1</property>
+    <property name="meta.media.sample_aspect_num">1</property>
+    <property name="meta.media.sample_aspect_den">1</property>
+    <property name="format">3</property>
+    <property name="audio_index">-1</property>
+    <property name="video_index">0</property>
+    <property name="vstream">0</property>
+    <property name="meta.media.frame_rate_num">60</property>
+    <property name="meta.media.frame_rate_den">1</property>
+    <property name="meta.media.colorspace">709</property>
+    <property name="meta.media.color_trc">2</property>
+    <property name="meta.media.has_b_frames">0</property>
+    <property name="meta.media.width">1253</property>
+    <property name="meta.media.height">671</property>
+    <property name="meta.media.aspect_ratio">1</property>
+    <property name="meta.media.color_range">mpeg</property>
+    <property name="meta.media.top_field_first">0</property>
+    <property name="meta.media.progressive">1</property>
+    <property name="creation_time">2026-07-08T23:51:10</property>
+    <property name="shotcut:skipConvert">0</property>
+    <property name="shotcut:hash">77d6147064af657c196584b79579b1fd</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">video_balloon_burst_gopro.mp4</property>
+    <property name="shotcut:projectAudioChannels">2</property>
+    <property name="shotcut:projectFolder">0</property>
+    <property name="shotcut:processingMode">Native8Cpu</property>
+  </chain>
+</mlt>
