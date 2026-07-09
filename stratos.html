@@ -141,4 +141,270 @@ aria-label="Asymmetric flight profile: linear ascent to a sharp burst apex at ~1
 
 <!-- Filled area under the trajectory -->
 <path class="flight-profile__area"
-d="M60,300
+d="M60,300 L440,48 C486,150 524,214 585,242 C672,282 762,290 850,292 L850,310 L60,310 Z" />
+
+<!-- Ascent: steady linear climb -->
+<path class="flight-profile__path flight-profile__path--ascent"
+d="M60,300 L440,48" />
+<!-- Descent: sharp drop flattening toward touchdown -->
+<path class="flight-profile__path flight-profile__path--descent"
+d="M440,48 C486,150 524,214 585,242 C672,282 762,290 850,292" />
+
+<!-- Nodes -->
+<g class="fp-node">
+<circle cx="60" cy="300" r="6"/>
+<text x="60" y="326" text-anchor="middle">Launch</text>
+<text class="fp-alt" x="60" y="288" text-anchor="middle">0 ft</text>
+</g>
+<g class="fp-node">
+<circle cx="440" cy="48" r="6"/>
+<text x="440" y="36" text-anchor="middle">Burst / Apex</text>
+<text class="fp-alt" x="440" y="70" text-anchor="middle">~100,000 ft</text>
+</g>
+<g class="fp-node">
+<circle cx="585" cy="242" r="6"/>
+<text x="585" y="230" text-anchor="middle">Descent</text>
+<text class="fp-alt" x="585" y="266" text-anchor="middle">Parachute</text>
+</g>
+<g class="fp-node">
+<circle cx="850" cy="292" r="6"/>
+<text x="850" y="280" text-anchor="end">Recovery</text>
+<text class="fp-alt" x="850" y="316" text-anchor="end">Touchdown</text>
+</g>
+</svg>
+
+<div class="flight-profile__legend">
+<div>Ascent rate<strong>~5 m/s</strong></div>
+<div>Burst altitude<strong>~100,000 ft</strong></div>
+<div>Descent<strong>Parachute-arrested</strong></div>
+<div>Flight duration<strong>~2 hr</strong></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===================== HARDWARE BREAKDOWN: THE EGG PAYLOAD ===================== -->
+<section class="section section--alt" aria-label="Hardware Breakdown — The Egg Payload">
+<div class="container">
+<div class="section__head">
+<p class="eyebrow reveal" data-reveal>Hardware Breakdown</p>
+<h2 class="section__title reveal" data-reveal data-reveal-delay="1">The Egg Payload.</h2>
+<p class="section__lead reveal" data-reveal data-reveal-delay="2">
+A self-contained instrumentation platform built to insulate its electronics, log a complete atmospheric profile, and survive ground impact for field recovery.
+</p>
+</div>
+
+<div class="egg">
+<!-- CAD render placeholder -->
+<figure class="egg__render reveal" data-reveal data-reveal-delay="1">
+<div class="placeholder-chassis">payload-cad-render.png</div>
+<figcaption class="egg__render-cap">
+<span class="egg__render-tag">CAD_01</span>
+<span>Aerodynamic Egg capsule — structural render</span>
+</figcaption>
+</figure>
+
+<!-- Spec list -->
+<div class="egg__specs">
+<div class="spec">
+<div class="spec__row reveal" data-reveal data-reveal-delay="1">
+<span class="spec__key">Structural Airframe</span>
+<span class="spec__val">
+A custom, aerodynamically optimized <strong>3D-printed Egg capsule</strong> built to
+insulate internal components against near-space cold and survive impact forces on descent.
+</span>
+</div>
+<div class="spec__row reveal" data-reveal data-reveal-delay="2">
+<span class="spec__key">Avionics Suite</span>
+<span class="spec__val">
+Onboard <strong>Arduino microcomputer</strong> integrated with an SD card logging shield,
+capturing temperature, barometric pressure, and relative humidity (RH) across the flight.
+</span>
+</div>
+<div class="spec__row reveal" data-reveal data-reveal-delay="3">
+<span class="spec__key">Recovery Stack</span>
+<span class="spec__val">
+Redundant tracking arrays combining primary <strong>GPS telemetry</strong>, an
+<strong>APRS</strong> system, and a localized <strong>AirTag</strong> backup for field recovery.
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===================== FIELD MEDIA MATRIX ===================== -->
+<section class="section" aria-label="Field Media">
+<div class="container">
+<div class="section__head">
+<p class="eyebrow reveal" data-reveal>Field Media</p>
+<h2 class="section__title reveal" data-reveal data-reveal-delay="1">From the ground station to the apex.</h2>
+</div>
+
+<!-- Launch Phase — drone video -->
+<div class="media-block reveal" data-reveal>
+<div class="media-block__head">
+<span class="media-block__index">01</span>
+<div>
+<h3 class="media-block__title">Launch Phase</h3>
+<p class="media-block__desc">DJI drone footage of the ground station team executing the launch.</p>
+</div>
+</div>
+<figure class="media-frame media-frame--wide">
+<video class="media-frame__media" controls preload="none" playsinline poster="">
+<source src="assets/video_launch_drone.mp4" type="video/mp4" />
+</video>
+</figure>
+</div>
+
+<!-- Stratospheric Transit — onboard stills gallery -->
+<div class="media-block reveal" data-reveal>
+<div class="media-block__head">
+<span class="media-block__index">02</span>
+<div>
+<h3 class="media-block__title">Stratospheric Transit</h3>
+<p class="media-block__desc">Onboard camera stills showing the curvature of the Earth over Guatemala.</p>
+</div>
+</div>
+<div class="media-gallery">
+<figure class="media-frame">
+<img class="media-frame__media" src="assets/stratosphere_curvature_1.jpg" alt="Onboard still — Earth curvature over Guatemala, frame 1" loading="lazy" />
+<div class="media-frame__ph" aria-hidden="true">
+<span class="media-frame__ph-icon">◈</span>
+<span class="media-frame__ph-name">stratosphere_curvature_1.jpg</span>
+</div>
+</figure>
+<figure class="media-frame">
+<img class="media-frame__media" src="assets/stratosphere_curvature_2.jpg" alt="Onboard still — Earth curvature over Guatemala, frame 2" loading="lazy" />
+<div class="media-frame__ph" aria-hidden="true">
+<span class="media-frame__ph-icon">◈</span>
+<span class="media-frame__ph-name">stratosphere_curvature_2.jpg</span>
+</div>
+</figure>
+</div>
+</div>
+
+<!-- The Apex Event — GoPro burst video -->
+<div class="media-block reveal" data-reveal>
+<div class="media-block__head">
+<span class="media-block__index">03</span>
+<div>
+<h3 class="media-block__title">The Apex Event</h3>
+<p class="media-block__desc">Onboard GoPro capturing the exact moment of balloon burst and parachute deployment.</p>
+</div>
+</div>
+<figure class="media-frame media-frame--wide media-frame--feature">
+<video class="media-frame__media" controls preload="none" playsinline poster="">
+<source src="assets/video_balloon_burst_gopro.mp4" type="video/mp4" />
+</video>
+</figure>
+</div>
+
+<!-- Team Ops — integration + recovery photos -->
+<div class="media-block reveal" data-reveal>
+<div class="media-block__head">
+<span class="media-block__index">04</span>
+<div>
+<h3 class="media-block__title">Team Ops</h3>
+<p class="media-block__desc">Payload integration and field recovery — tracker hunting downrange.</p>
+</div>
+</div>
+<div class="media-gallery">
+<figure class="media-frame">
+<img class="media-frame__media" src="assets/team_assembly.jpg" alt="Team during payload integration" loading="lazy" />
+<div class="media-frame__ph" aria-hidden="true">
+<span class="media-frame__ph-icon">◈</span>
+<span class="media-frame__ph-name">team_assembly.jpg</span>
+</div>
+</figure>
+<figure class="media-frame">
+<img class="media-frame__media" src="assets/recovery_team.jpg" alt="Recovery team tracking the payload in the field" loading="lazy" />
+<div class="media-frame__ph" aria-hidden="true">
+<span class="media-frame__ph-icon">◈</span>
+<span class="media-frame__ph-name">recovery_team.jpg</span>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===================== MISSION DATA ANALYTICS DASHBOARD ===================== -->
+<section class="section section--alt" aria-label="Mission Data Analytics">
+<div class="container">
+<div class="section__head">
+<p class="eyebrow reveal" data-reveal>Mission Data</p>
+<h2 class="section__title reveal" data-reveal data-reveal-delay="1">Flight analytics dashboard.</h2>
+<p class="section__lead reveal" data-reveal data-reveal-delay="2">
+Post-mission findings from the onboard logger and recovery telemetry. Chart surfaces are
+wired and awaiting the finalized flight dataset.
+</p>
+</div>
+
+<div class="grid grid--3 dashboard">
+<!-- Thermal profile -->
+<article class="data-card reveal" data-reveal data-reveal-delay="1">
+<div class="data-card__head">
+<span class="data-card__num">01</span>
+</div>
+<h3 class="data-card__title">Atmosphere Thermal Profile</h3>
+<p class="data-card__sub">Temperature vs. altitude — tropopause drop</p>
+<div class="chart">
+<span class="chart__empty">Awaiting Flight Data</span>
+</div>
+</article>
+
+<!-- Barometric decay -->
+<article class="data-card reveal" data-reveal data-reveal-delay="2">
+<div class="data-card__head">
+<span class="data-card__num">02</span>
+</div>
+<h3 class="data-card__title">Barometric Decay Curve</h3>
+<p class="data-card__sub">Pressure dropping below 10 hPa</p>
+<div class="chart">
+<span class="chart__empty">Awaiting Flight Data</span>
+</div>
+</article>
+
+<!-- Downrange flight path -->
+<article class="data-card reveal" data-reveal data-reveal-delay="3">
+<div class="data-card__head">
+<span class="data-card__num">03</span>
+</div>
+<h3 class="data-card__title">Downrange Flight Path</h3>
+<p class="data-card__sub">Departure → recovery zone, Escuintla (near port)</p>
+<div class="chart">
+<span class="chart__empty">Awaiting Flight Data</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+<div class="footer__inner">
+<div class="footer__left">
+<a href="/" aria-label="JBAS — home" class="footer__logo-link">
+<img src="assets/jbas-logo.png" alt="JBAS Logo" class="footer__logo" />
+</a>
+<p class="footer__tagline">Journey Beyond Aerospace Society</p>
+</div>
+<div class="footer__right">
+<p class="footer__heading">SOCIAL</p>
+<nav class="footer__links" aria-label="Social links">
+<span class="footer__link footer__link--muted">YouTube <span class="footer__soon">— coming soon</span></span>
+<a class="footer__link" href="https://www.instagram.com/jbas_cm/" target="_blank" rel="noopener noreferrer">Instagram</a>
+<a class="footer__link" href="https://github.com/ruricky" target="_blank" rel="noopener noreferrer">GitHub</a>
+</nav>
+</div>
+</div>
+<div class="footer__bottom">
+<span class="footer__copy">© 2025 JBAS. All rights reserved.</span>
+</div>
+</footer>
+
+<script src="stratos.js"></script>
+</body>
+</html>
